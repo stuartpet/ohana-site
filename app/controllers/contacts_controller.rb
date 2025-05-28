@@ -1,11 +1,16 @@
 class ContactsController < ApplicationController
   def create
+    if params[:contact][:nickname].present?
+      head :unprocessable_entity and return
+    end
+
     @contact = Contact.new(contact_params)
     if @contact.save
-      ContactMailer.with(contact: @contact).new_contact.deliver_later
+      ContactMailer.new_contact(@contact).deliver_later
       redirect_to contact_path, notice: "Thank you for your message."
     else
-      render "pages/contact", notice: "your message was nit sent please try again"
+      flash[:alert] = "Please correct the errors."
+      render "pages/contact"
     end
   end
 

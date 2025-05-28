@@ -18,6 +18,11 @@
     <%= f.text_area :message, class: "form-control", rows: 5, required: true %>
   </div>
 
+  <div style="display: none;">
+    <%= f.label :nickname, "Leave this field blank" %>
+    <%= f.text_field :nickname, value: "" %>
+  </div>
+
   <%= f.submit "Send Message", class: "btn-submit" %>
 <% end %>
 

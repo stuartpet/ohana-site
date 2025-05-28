@@ -15,6 +15,14 @@
 #     # Specify URI for violation reports
 #     # policy.report_uri "/csp-violation-report-endpoint"
 #   end
+Rails.application.config.content_security_policy do |policy|
+  policy.default_src :self
+  policy.font_src    :self
+  policy.img_src     :self, :data, :https
+  policy.object_src  :none
+  policy.script_src  :self
+  policy.style_src   :self, :unsafe_inline
+end
 #
 #   # Generate session nonces for permitted importmap, inline scripts, and inline styles.
 #   config.content_security_policy_nonce_generator = ->(request) { request.session.id.to_s }
