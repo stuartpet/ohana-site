@@ -1,2 +1,28 @@
-<h1>Pages#contact</h1>
-<p>Find me in app/views/pages/contact.html.erb</p>
+<h1>Contact Us</h1>
+
+<p>We collect only the details we need to respond to your message. Your data won’t be stored or shared beyond this purpose.</p>
+
+<%= form_with url: contacts_path, method: :post, local: true do |f| %>
+  <div class="form-group">
+    <%= f.label :name, "Your Name" %><br>
+    <%= f.text_field :name, class: "form-control", required: true %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :email, "Your Email" %><br>
+    <%= f.email_field :email, class: "form-control", required: true %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :message, "Your Message" %><br>
+    <%= f.text_area :message, class: "form-control", rows: 5, required: true %>
+  </div>
+
+  <%= f.submit "Send Message", class: "btn-submit" %>
+<% end %>
+
+<% if flash[:notice] %>
+  <p class="flash flash-success"><%= flash[:notice] %></p>
+<% elsif flash[:alert] %>
+  <p class="flash flash-error"><%= flash[:alert] %></p>
+<% end %>

@@ -1,0 +1,137 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+// Color palette
+$primary-color: #2C3E50;
+$secondary-color: #2980B9;
+$accent-color: #E67E22;
+$background-color: #ECF0F1;
+$text-color: #2C3E50;
+
+body {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+body {
+    background-color: $background-color;
+    color: $text-color;
+    font-family: 'Helvetica Neue', sans-serif;
+    padding: 0 2rem;
+}
+
+header {
+    background-color: $primary-color;
+    color: white;
+    padding: 1rem;
+    margin-bottom: 2rem;
+}
+
+footer {
+    background-color: $primary-color;
+    color: white;
+    padding: 1rem;
+    margin-top: 2rem;
+    text-align: center;
+}
+
+h1, h2 {
+    color: $primary-color;
+}
+
+a {
+    color: $secondary-color;
+    text-decoration: none;
+}
+
+form div {
+    margin-bottom: 1rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-control {
+    width: 100%;
+    padding: 0.6rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-family: inherit;
+}
+
+.btn-submit {
+    background-color: #2980B9;
+    color: white;
+    padding: 0.7rem 1.2rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.btn-submit:hover {
+    background-color: #2471A3;
+}
+
+.flash {
+    padding: 1rem;
+    margin-top: 1rem;
+    border-radius: 4px;
+}
+
+.flash-success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.flash-error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+.contacts-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1.5rem;
+    font-size: 0.95rem;
+}
+
+.contacts-table th,
+.contacts-table td {
+    border: 1px solid #ccc;
+    padding: 0.75rem;
+    text-align: left;
+}
+
+.contacts-table th {
+    background-color: #2C3E50;
+    color: white;
+}
+
+.contacts-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+
