@@ -21,12 +21,13 @@ jobs:
     steps:
       - checkout
       - run:
+      - run:
           name: Install dependencies
           command: |
             sudo apt-get update
             sudo apt-get install -y libvips postgresql-client
-            gem install bundler
-            bundle install --jobs=4 --retry=3
+            gem install bundler -v 2.4.10
+            bundle _2.4.10_ install --jobs=4 --retry=3
       - run:
           name: Wait for Postgres
           command: |
