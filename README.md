@@ -2,47 +2,55 @@
 
 # Ohana Consulting Website
 
-A sleek, personal-yet-professional site for a boutique property consulting firm. Designed to showcase services, client work, and enable secure contact, with mobile-friendly design and clean UX.
+A clean, elegant web presence for a boutique property consultancy. Built to be fast, accessible, and mobile-friendly — with clear messaging and easy contact.
+
+---
 
 ## 🛠 Tech Stack
 
 - **Backend**: Ruby on Rails 7
-- **Frontend**: Embedded Ruby (ERB), custom CSS
+- **Frontend**: ERB templates & custom CSS
 - **Testing**: RSpec, Capybara
 - **Code Quality**: RuboCop
 - **CI/CD**: CircleCI
 - **Deployment**: Netlify
 
-## 🧪 Test Coverage
-
-Coming soon: test coverage badge via [SimpleCov](https://github.com/simplecov-ruby/simplecov)
+---
 
 ## 🚀 Features
 
-- Elegant landing page
-- Smooth scrolling to "About", "Services", and "Clients"
-- Secure contact form with spam protection (honeypot field)
-- Admin-only contact inbox (WIP)
-- Simple structure with clean, accessible HTML/CSS
+- Smooth-scroll single-page layout
+- "About", "Services", and "Clients" sections
+- Secure contact form with honeypot spam protection
+- Admin inbox (WIP)
+- Responsive design for all screen sizes
 
-## 📂 Setup Instructions
+---
 
-## 🧪 Running Locally
+## 🧪 Getting Started Locally
+
+To set everything up in one step:
+
 ```bash
-bundle install
-bin/rails db:create db:migrate
-bin/rails server
-Visit http://localhost:3000
+bin/setup
 
-✅ Running Tests
-bundle exec rspec
-To check linting:
-bundle exec rubocop
+This installs gems, sets up the database, clears logs/tmp, and restarts the Rails server.
+
+Then run the server with:
+bin/rails server
+Visit: http://localhost:3000
 ```
 
-👤 Author
-Built by Stuart Pethurst as part of a consulting project.
-Brand presented by Studio P ✨
+✅ Development Commands
+Run tests:
+bundle exec rspec
 
-📄 License
-MIT License
+Lint with RuboCop:
+bundle exec rubocop
+
+📦 Deployment
+Deployed with Netlify, with CI checks via CircleCI on every push.
+
+👤 Author
+Built by Stuart Pethurst
+Design & delivery by Studio P ✨
