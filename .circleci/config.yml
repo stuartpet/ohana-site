@@ -6,10 +6,12 @@ executors:
       - image: cimg/ruby:3.2.2
         environment:
           RAILS_ENV: test
+          POSTGRES_HOST: postgres
       - image: cimg/postgres:14.7
+        name: postgres
         environment:
           POSTGRES_USER: postgres
-          POSTGRES_DB: app_test
+          POSTGRES_DB: ohana_site_test
           POSTGRES_PASSWORD: postgres
     working_directory: ~/app
 
@@ -26,9 +28,16 @@ jobs:
             gem install bundler
             bundle install --jobs=4 --retry=3
       - run:
-          name: Set up DB
+          name: Wait for Postgres
           command: |
-            bin/rails db:create db:schema:load
+            for i in {1..10}; do
+              nc -z postgres 5432 && echo "Postgres is up!" && break
+              echo "Waiting for Postgres..."
+              sleep 2
+            done
+      - run:
+          name: Set up database
+          command: bin/rails db:create db:schema:load
 
   test:
     executor: ruby-executor

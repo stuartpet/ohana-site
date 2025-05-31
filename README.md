@@ -1,45 +1,48 @@
-# Ohana Consulting
+![CircleCI](https://circleci.com/gh/stuartpet/ohana_site.svg?style=shield)
+
+# Ohana Consulting Website
 
 A sleek, personal-yet-professional site for a boutique property consulting firm. Designed to showcase services, client work, and enable secure contact, with mobile-friendly design and clean UX.
 
-## 🚀 Tech Stack
+## 🛠 Tech Stack
 
-- Ruby on Rails 7
-- HTML/CSS with custom styling
-- RSpec for testing
-- RuboCop for linting
-- GitHub Actions (CI)
-- Netlify
-
-## 🧪 CI Status
-
-![CircleCI](https://circleci.com/gh/YOUR_USERNAME/YOUR_REPO_NAME.svg?style=svg)
+- **Backend**: Ruby on Rails 7
+- **Frontend**: Embedded Ruby (ERB), custom CSS
+- **Testing**: RSpec, Capybara
+- **Code Quality**: RuboCop
+- **CI/CD**: CircleCI
+- **Deployment**: Netlify
 
 ## 🧪 Test Coverage
 
 Coming soon: test coverage badge via [SimpleCov](https://github.com/simplecov-ruby/simplecov)
 
+## 🚀 Features
+
+- Elegant landing page
+- Smooth scrolling to "About", "Services", and "Clients"
+- Secure contact form with spam protection (honeypot field)
+- Admin-only contact inbox (WIP)
+- Simple structure with clean, accessible HTML/CSS
+
 ## 📂 Setup Instructions
 
+## 🧪 Running Locally
 ```bash
 bundle install
-bin/setup
-bin/dev
+bin/rails db:create db:migrate
+bin/rails server
+Visit http://localhost:3000
 
 ✅ Running Tests
-bash
-Copy
-Edit
-bin/rspec
-
-🧹 Linting
-bash
-Copy
-Edit
-bin/rubocop
+bundle exec rspec
+To check linting:
+bundle exec rubocop
 ```
-✉️ Contact
-This site includes a contact form with spam protection via a honeypot field.
 
-👤 Created By
-This site was designed and built by [Stuart Pethurst] for a consulting business. If you’d like help creating something similar, feel free to get in touch!
+👤 Author
+Built by Stuart Pethurst as part of a consulting project.
+Brand presented by Studio P ✨
+
+📄 License
+MIT License
