@@ -60,7 +60,7 @@ Rails.application.configure do
 
   # Log to STDOUT by default
   config.logger = ActiveSupport::Logger.new(STDOUT)
-    .tap  { |logger| logger.formatter = ::Logger::Formatter.new }
+    .tap  { |logger| logger.formatter = Logger::Formatter.new }
     .then { |logger| ActiveSupport::TaggedLogging.new(logger) }
 
   # Prepend all log lines with the following tags.
@@ -109,13 +109,14 @@ Rails.application.configure do
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address:              "smtp.mailgun.org",
+    address:              "smtp.zoho.eu", # use `.com` if your Zoho account is US-based
     port:                 587,
-    domain:               "yourdomain.com",
-    user_name:            ENV["SMTP_USER"],
-    password:             ENV["SMTP_PASS"],
+    domain:               "ohana-consulting.co.uk",
+    user_name:            ENV.fetch("SMTP_USER", nil),
+    password:             ENV.fetch("SMTP_PASSWORD", nil),
     authentication:       "plain",
     enable_starttls_auto: true
   }
+
 
 end

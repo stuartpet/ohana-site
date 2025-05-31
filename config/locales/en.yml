@@ -28,4 +28,6 @@
 #       enabled: "ON"
 
 en:
-  hello: "Hello world"
+  contacts:
+    success: "Thank you for your message."
+    failure: "Please correct the errors."

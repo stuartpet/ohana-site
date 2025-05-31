@@ -1,24 +1,45 @@
-# README
+# Ohana Consulting
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A sleek, personal-yet-professional site for a boutique property consulting firm. Designed to showcase services, client work, and enable secure contact, with mobile-friendly design and clean UX.
 
-Things you may want to cover:
+## 🚀 Tech Stack
 
-* Ruby version
+- Ruby on Rails 7
+- HTML/CSS with custom styling
+- RSpec for testing
+- RuboCop for linting
+- GitHub Actions (CI)
+- Netlify
 
-* System dependencies
+## 🧪 CI Status
 
-* Configuration
+![CircleCI](https://circleci.com/gh/YOUR_USERNAME/YOUR_REPO_NAME.svg?style=svg)
 
-* Database creation
+## 🧪 Test Coverage
 
-* Database initialization
+Coming soon: test coverage badge via [SimpleCov](https://github.com/simplecov-ruby/simplecov)
 
-* How to run the test suite
+## 📂 Setup Instructions
 
-* Services (job queues, cache servers, search engines, etc.)
+```bash
+bundle install
+bin/setup
+bin/dev
 
-* Deployment instructions
+✅ Running Tests
+bash
+Copy
+Edit
+bin/rspec
 
-* ...
+🧹 Linting
+bash
+Copy
+Edit
+bin/rubocop
+```
+✉️ Contact
+This site includes a contact form with spam protection via a honeypot field.
+
+👤 Created By
+This site was designed and built by [Stuart Pethurst] for a consulting business. If you’d like help creating something similar, feel free to get in touch!
