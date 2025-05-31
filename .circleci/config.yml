@@ -1,0 +1,48 @@
+version: 2.1
+
+executors:
+  ruby-executor:
+    docker:
+      - image: cimg/ruby:3.2.2
+        environment:
+          RAILS_ENV: test
+      - image: cimg/postgres:14.7
+        environment:
+          POSTGRES_USER: postgres
+          POSTGRES_DB: app_test
+          POSTGRES_PASSWORD: postgres
+    working_directory: ~/app
+
+jobs:
+  setup:
+    executor: ruby-executor
+    steps:
+      - checkout
+      - run:
+          name: Install dependencies
+          command: |
+            sudo apt-get update
+            sudo apt-get install -y libvips postgresql-client
+            gem install bundler
+            bundle install --jobs=4 --retry=3
+      - run:
+          name: Set up DB
+          command: |
+            bin/rails db:create db:schema:load
+
+  test:
+    executor: ruby-executor
+    steps:
+      - checkout
+      - run:
+          name: Run RSpec
+          command: bundle exec rspec
+
+workflows:
+  version: 2
+  test_app:
+    jobs:
+      - setup
+      - test:
+          requires:
+            - setup
