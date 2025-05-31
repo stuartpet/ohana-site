@@ -44,6 +44,11 @@ jobs:
     steps:
       - checkout
       - run:
+          name: Install dependencies
+          command: |
+            gem install bundler -v 2.4.10
+            bundle _2.4.10_ install --jobs=4 --retry=3
+      - run:
           name: Run RSpec
           command: bin/rspec
 
