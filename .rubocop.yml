@@ -47,6 +47,9 @@ RSpec/DescribeSymbol:
 RSpec/ExampleLength:
   Max: 20
 
+RSpec/MultipleExpectations:
+  Enabled: false
+
 RSpec/NamedSubject:
   Enabled: false
 

@@ -29,5 +29,6 @@
 
 en:
   contacts:
-    success: "Thank you for your message."
-    failure: "Please correct the errors."
+    notice: "Thank you for your message. We will be in touch soon."
+    failure: "There was a problem with your submission."
+

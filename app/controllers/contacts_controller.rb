@@ -1,13 +1,18 @@
 class ContactsController < ApplicationController
+  def new
+    @contact = Contact.new
+  end
+
   def create
     # Spam bot honeypot
     spam_filter
 
-    contact = contact_params.to_h.symbolize_keys
+    @contact = Contact.new(contact_params)
 
-    if contact[:name].present? && contact[:email].present? && contact[:message].present?
-      ContactMailer.new_contact(contact).deliver_later
-      redirect_to contact_path, notice: t('contacts.success')
+    if @contact.valid?
+      ContactMailer.contact_email(@contact).deliver_now
+      flash.now[:notice] = t('contacts.notice')
+      redirect_to root_path(anchor: 'contact')
     else
       render_error
     end
@@ -15,7 +20,7 @@ class ContactsController < ApplicationController
 
   def render_error
     flash.now[:alert] = t('contacts.failure')
-    render "pages/contact"
+    render :new, status: :unprocessable_content
   end
 
   def spam_filter
