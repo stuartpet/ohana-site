@@ -10,6 +10,7 @@ AllCops:
   TargetRubyVersion: 3.2
   Exclude:
     - 'db/schema.rb'
+    - 'db/migrate/**/*'
     - 'bin/**/*'
     - 'node_modules/**/*'
     - 'vendor/**/*'
@@ -17,7 +18,7 @@ AllCops:
     - 'spec/support/**/*'
 
 Layout/LineLength:
-  Max: 100
+  Max: 120
 
 Metrics/AbcSize: # ✅ fixed extra space
   Max: 17

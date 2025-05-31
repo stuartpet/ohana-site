@@ -9,9 +9,13 @@ class ContactsController < ApplicationController
       ContactMailer.new_contact(contact).deliver_later
       redirect_to contact_path, notice: t('contacts.success')
     else
-      flash[:alert] = t('contacts.failure')
-      render "pages/contact"
+      render_error
     end
+  end
+
+  def render_error
+    flash.now[:alert] = t('contacts.failure')
+    render "pages/contact"
   end
 
   def spam_filter
