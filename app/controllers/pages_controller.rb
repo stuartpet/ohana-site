@@ -4,8 +4,8 @@ class PagesController < ApplicationController
 
   def contact
   end
+
   def privacy
     render layout: "application"
   end
-
 end

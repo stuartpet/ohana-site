@@ -18,7 +18,6 @@ class ContactsController < ApplicationController
     return if params.dig(:contact, :nickname).blank?
 
     head :unprocessable_entity
-
   end
 
   private

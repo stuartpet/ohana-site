@@ -12,6 +12,7 @@ class Rack::Attack
   end
 
   self.throttled_responder = ->(env) {
-    [ 429, { "Content-Type" => "text/plain" }, [ "Too many submissions. Please wait and try again." ] ]
+    [ 429, { "Content-Type" => "text/plain" },
+      [ "Too many submissions. Please wait and try again." ] ]
   }
 end

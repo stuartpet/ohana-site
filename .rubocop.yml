@@ -1,6 +1,6 @@
 inherit_from: .rubocop_todo.yml
 
-require:
+plugins:
   - rubocop-rails
   - rubocop-rspec
   - rubocop-performance
@@ -19,11 +19,11 @@ AllCops:
 Layout/LineLength:
   Max: 100
 
-Metrics/ AbcSize:
-  max: 17
+Metrics/AbcSize: # ✅ fixed extra space
+  Max: 17
 
 Metrics/MethodLength:
- Enabled: false
+  Enabled: false
 
 Metrics/ClassLength:
   Max: 300
@@ -49,15 +49,7 @@ RSpec/ExampleLength:
 RSpec/NamedSubject:
   Enabled: false
 
-RSpec/DescribeRequest:
-  Enabled: false  # <- disables complaints about type: :request
-
-# Disable cops that error or don't apply in API-only Rails
-Capybara:
-  Enabled: false
-
-Capybara/RSpec/PredicateMatcher:
-  Enabled: false
-
-FactoryBot/AssociationStyle:
-  Enabled: false
+# ❌ Removed invalid/unsupported cops:
+# - RSpec/DescribeRequest does not exist
+# - Capybara cops require rubocop-capybara
+# - FactoryBot cops require rubocop-factory_bot
