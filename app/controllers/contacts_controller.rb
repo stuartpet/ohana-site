@@ -1,18 +1,24 @@
 class ContactsController < ApplicationController
   def create
-    if params.dig(:contact, :nickname).present?
-      head :unprocessable_entity and return
-    end
+    # Spam bot honeypot
+    spam_filter
 
-    @contact = Contact.new(contact_params)
+    contact = contact_params.to_h.symbolize_keys
 
-    if @contact.save
-      ContactMailer.new_contact(@contact).deliver_later
+    if contact[:name].present? && contact[:email].present? && contact[:message].present?
+      ContactMailer.new_contact(contact).deliver_later
       redirect_to contact_path, notice: t('contacts.success')
     else
       flash[:alert] = t('contacts.failure')
       render "pages/contact"
     end
+  end
+
+  def spam_filter
+    return if params.dig(:contact, :nickname).blank?
+
+    head :unprocessable_entity
+
   end
 
   private
@@ -21,4 +27,3 @@ class ContactsController < ApplicationController
     params.require(:contact).permit(:name, :email, :message)
   end
 end
-

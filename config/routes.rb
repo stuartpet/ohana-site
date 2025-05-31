@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root "pages#home"
   get "about", to: "pages#about"
   get "contact", to: "pages#contact"
+  get "privacy", to: "pages#privacy", as: :privacy
 
   # Only allow POST to create contacts
   resources :contacts, only: [:create]

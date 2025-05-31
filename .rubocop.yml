@@ -1,15 +1,63 @@
-inherit_from:
-  - .rubocop_todo.yml
+inherit_from: .rubocop_todo.yml
 
 require:
   - rubocop-rails
   - rubocop-rspec
+  - rubocop-performance
 
 AllCops:
   NewCops: enable
   TargetRubyVersion: 3.2
   Exclude:
-    - 'bin/**/*'
     - 'db/schema.rb'
+    - 'bin/**/*'
     - 'node_modules/**/*'
     - 'vendor/**/*'
+    - 'spec/fixtures/**/*'
+    - 'spec/support/**/*'
+
+Layout/LineLength:
+  Max: 100
+
+Metrics/ AbcSize:
+  max: 17
+
+Metrics/MethodLength:
+ Enabled: false
+
+Metrics/ClassLength:
+  Max: 300
+
+Rails:
+  Enabled: true
+
+RSpec:
+  Enabled: true
+
+Performance:
+  Enabled: true
+
+RSpec/DescribeClass:
+  Enabled: false
+
+RSpec/DescribeSymbol:
+  Enabled: false
+
+RSpec/ExampleLength:
+  Max: 20
+
+RSpec/NamedSubject:
+  Enabled: false
+
+RSpec/DescribeRequest:
+  Enabled: false  # <- disables complaints about type: :request
+
+# Disable cops that error or don't apply in API-only Rails
+Capybara:
+  Enabled: false
+
+Capybara/RSpec/PredicateMatcher:
+  Enabled: false
+
+FactoryBot/AssociationStyle:
+  Enabled: false

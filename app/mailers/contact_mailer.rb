@@ -1,9 +1,12 @@
 class ContactMailer < ApplicationMailer
   def new_contact(contact)
-    @contact = contact
+    @name = contact[:name]
+    @email = contact[:email]
+    @message = contact[:message]
+
     mail(
-      to: ENV["CONTACT_EMAIL"] || "contact@example.com",
-      subject: "New contact message from #{@contact.name}"
+      to: ENV.fetch("PARTNER_CONTACT_EMAIL", "example@example.com"),
+      subject: "New contact from #{@name}"
     )
   end
 end

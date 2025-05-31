@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Ohana Consulting</title>
+  <title><%= content_for?(:title) ? yield(:title) : "Ohana Consulting" %></title>
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
   <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
@@ -12,16 +12,15 @@
 <!-- NAVBAR -->
 <header class="navbar" style="background-color: #9EB371; padding: 1rem 2rem; color: white;">
   <nav style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
-
     <!-- Hamburger (for small screens) -->
     <button class="menu-toggle" onclick="toggleMenu()" style="font-size: 1.5rem; background: none; border: none; color: white; display: none;">
       ☰
     </button>
 
     <div class="navbar-links" id="navbar-links" style="display: flex; gap: 1rem;">
-      <a href="#about">About</a>
-      <a href="#services">Services</a>
-      <a href="#clients">Clients</a>
+      <%= link_to "About", root_path(anchor: "about") %>
+      <%= link_to "Services", root_path(anchor: "services") %>
+      <%= link_to "Clients", root_path(anchor: "clients") %>
       <%= link_to 'Contact', contact_path %>
     </div>
   </nav>
@@ -34,10 +33,9 @@
 
 <!-- FOOTER -->
 <footer style="background-color: #9EB371; color: white; padding: 2rem; text-align: center;">
-  &copy; <%= Time.current.year %> Ohana Consulting. All rights reserved.
-  <p style="font-size: 0.8rem; color: #999;">
-    Created with care by Studio P Design
-  </p>
+  <p>&copy; <%= Time.current.year %> Ohana Consulting. All rights reserved.</p>
+  <p style="font-size: 0.8rem; color: #f0f0f0;">Created with care by Studio P Design</p>
+  <p><%= link_to "Privacy Statement", privacy_path, style: "color: white; text-decoration: underline;" %></p>
 </footer>
 
 <!-- Smooth Scroll & Mobile Menu Script -->
