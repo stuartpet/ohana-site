@@ -3,9 +3,16 @@ require 'rails_helper'
 RSpec.describe 'Contacts', type: :request do
   describe 'GET /contact' do
     it 'renders the contact form' do
-      get new_contact_path
+      get contact_path
       expect(response).to have_http_status(:ok)
       expect(response.body).to include('Contact')
+    end
+  end
+
+  describe 'GET /contacts' do
+    it 'redirects to /contact' do
+      get '/contacts'
+      expect(response).to redirect_to('/contact')
     end
   end
 
@@ -19,7 +26,7 @@ RSpec.describe 'Contacts', type: :request do
         post contacts_path, params: { contact: valid_params }
       end.to change { ActionMailer::Base.deliveries.count }.by(1)
 
-      expect(response).to redirect_to(root_path(anchor: "contact"))
+      expect(response).to redirect_to(root_path(anchor: 'contact'))
       expect(flash[:notice]).to eq("Thank you for your message. We will be in touch soon.")
     end
 

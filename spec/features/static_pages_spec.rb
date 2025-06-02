@@ -11,7 +11,7 @@ RSpec.describe "Pages", type: :request do
 
   describe "GET /contact" do
     it "returns http success" do
-      get new_contact_path
+      get contact_path
       expect(response).to have_http_status(:success)
       expect(response.body).to include("Contact")
     end
