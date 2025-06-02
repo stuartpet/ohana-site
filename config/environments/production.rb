@@ -117,6 +117,7 @@ Rails.application.configure do
     authentication:       "plain",
     enable_starttls_auto: true
   }
+  config.action_mailer.default_url_options = { host: 'ohana-consulting.co.uk', protocol: 'https' }
 
-
+  config.session_store :cookie_store, key: '_ohana_consulting_session', secure: Rails.env.production?
 end

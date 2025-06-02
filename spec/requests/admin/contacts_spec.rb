@@ -14,6 +14,7 @@ RSpec.describe "Admin::Contacts", type: :request do
       }
 
       expect(response).to have_http_status(:success)
+      expect(response.body).to include("Contact Submissions")
     end
   end
 end
