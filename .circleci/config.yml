@@ -28,6 +28,10 @@ jobs:
             gem install bundler -v 2.4.10
             bundle _2.4.10_ install --jobs=4 --retry=3
       - run:
+          name: Trigger Render Deploy
+          command: |
+            curl -X POST https://api.render.com/deploy/srv-d0thl7qdbo4c739n1id0?key=_xE7v0GU4RQ
+      - run:
           name: Install Chrome
           command: |
             sudo apt-get update
