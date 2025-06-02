@@ -5,7 +5,8 @@ Rails.application.routes.draw do
 
   # Contact form
   get "/contact", to: "contacts#new", as: :contact
-  resources :contacts, only: [:new, :create]
+  get "/contacts", to: redirect("/contact")
+  resources :contacts, only: [:create]
 
   # Health check
   get "up" => "rails/health#show", as: :rails_health_check
