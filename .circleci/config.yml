@@ -25,7 +25,10 @@ jobs:
           name: Install OS dependencies
           command: |
             sudo apt-get update
-            sudo apt-get install -y libvips postgresql-client chromium-browser nodejs yarn
+            sudo apt-get install -y libvips postgresql-client curl
+            curl -sL https://deb.nodesource.com/setup_20.x | sudo -E bash -
+            sudo apt-get install -y nodejs
+            npm install --global yarn
 
       - run:
           name: Install Ruby dependencies
@@ -37,13 +40,23 @@ jobs:
           name: Install JS dependencies
           command: yarn install
 
+      - restore_cache:
+          keys:
+            - v1-assets-{{ checksum "yarn.lock" }}-{{ checksum "Gemfile.lock" }}
+
       - run:
           name: Build JavaScript assets with esbuild
           command: yarn build
 
       - run:
           name: Precompile Rails assets
-          command: bundle exec rails assets:precompile
+          command: RAILS_ENV=production bundle exec rails assets:precompile
+
+      - save_cache:
+          paths:
+            - public/assets
+            - tmp/cache/assets
+          key: v1-assets-{{ checksum "yarn.lock" }}-{{ checksum "Gemfile.lock" }}
 
       - run:
           name: Set up database
