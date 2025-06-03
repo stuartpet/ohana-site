@@ -17,6 +17,7 @@ gem 'stimulus-rails'
 gem 'jbuilder'
 gem 'rack-attack'
 gem 'sassc-rails'
+gem 'sitemap_generator'
 
 
 # Use Redis adapter to run Action Cable in production

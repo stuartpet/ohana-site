@@ -20,43 +20,51 @@ jobs:
     executor: ruby-executor
     steps:
       - checkout
+
       - run:
-          name: Install dependencies
+          name: Install OS dependencies
           command: |
             sudo apt-get update
-            sudo apt-get install -y libvips postgresql-client
+            sudo apt-get install -y libvips postgresql-client chromium-browser nodejs yarn
+
+      - run:
+          name: Install Ruby dependencies
+          command: |
             gem install bundler -v 2.4.10
             bundle _2.4.10_ install --jobs=4 --retry=3
+
+      - run:
+          name: Install JS dependencies
+          command: yarn install
+
+      - run:
+          name: Build JavaScript assets with esbuild
+          command: yarn build
+
+      - run:
+          name: Precompile Rails assets
+          command: bundle exec rails assets:precompile
+
+      - run:
+          name: Set up database
+          command: bin/rails db:create db:schema:load
+
       - run:
           name: Trigger Render Deploy
           command: |
             curl -X POST https://api.render.com/deploy/srv-d0thl7qdbo4c739n1id0?key=_xE7v0GU4RQ
-      - run:
-          name: Install Chrome
-          command: |
-            sudo apt-get update
-            sudo apt-get install -y chromium-browser
-      - run:
-          name: Wait for Postgres
-          command: |
-            for i in {1..10}; do
-              nc -z postgres 5432 && echo "Postgres is up!" && break
-              echo "Waiting for Postgres..."
-              sleep 2
-            done
-      - run:
-          name: Set up database
-          command: bin/rails db:create db:schema:load
 
   test:
     executor: ruby-executor
     steps:
       - checkout
+
       - run:
-          name: Install dependencies
+          name: Install Ruby dependencies
           command: |
             gem install bundler -v 2.4.10
             bundle _2.4.10_ install --jobs=4 --retry=3
+
       - run:
           name: Run RSpec
           command: bin/rspec
