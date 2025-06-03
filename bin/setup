@@ -17,9 +17,6 @@ FileUtils.chdir APP_ROOT do
   system! "gem install bundler --conservative"
   system("bundle check") || system!("bundle install")
 
-  puts "\n== Installing JS dependencies =="
-  system! "bin/importmap install"
-
   puts "\n== Setting up database =="
   system! "bin/rails db:prepare"
 
