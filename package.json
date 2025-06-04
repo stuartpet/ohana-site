@@ -1,10 +1,12 @@
 {
+  "name": "ohana-site",
+  "private": true,
   "dependencies": {
     "@hotwired/stimulus": "^3.2.2",
     "@hotwired/turbo-rails": "^8.0.16",
-    "esbuild": "^0.25.5"
+    "esbuild": "^0.20.0"
   },
   "scripts": {
-    "build": "esbuild app/javascript/*.* --bundle --sourcemap --format=esm --outdir=app/assets/builds --public-path=/assets"
+    "build": "esbuild app/javascript/application.js --bundle --outdir=app/assets/builds --format=esm"
   }
 }
