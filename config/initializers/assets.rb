@@ -5,7 +5,6 @@ Rails.application.config.assets.version = "1.0"
 # Add esbuild output path to asset pipeline
 Rails.application.config.assets.paths << Rails.root.join("app/assets/builds")
 
-
 # Add additional assets to the asset load path.
 # Rails.application.config.assets.paths << Emoji.images_path
 
