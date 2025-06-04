@@ -17,6 +17,7 @@ gem 'jbuilder'
 gem 'rack-attack'
 gem 'sassc-rails'
 gem 'sitemap_generator'
+gem 'jsbundling-rails', '~> 1.3'
 
 
 # Use Redis adapter to run Action Cable in production
@@ -66,5 +67,3 @@ group :test do
   gem 'webdrivers'
   gem 'simplecov', require: false
 end
-
-gem "jsbundling-rails", "~> 1.3"
