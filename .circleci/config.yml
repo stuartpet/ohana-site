@@ -49,10 +49,6 @@ jobs:
           name: Set up database
           command: bin/rails db:create db:schema:load
 
-      - run:
-          name: Trigger Render Deploy
-          command: |
-            curl -X POST https://api.render.com/deploy/srv-d0thl7qdbo4c739n1id0?key=_xE7v0GU4RQ
 
 
   test:
@@ -82,6 +78,14 @@ jobs:
           name: Run RSpec
           command: bin/rspec
 
+deploy:
+  executor: ruby-executor
+  steps:
+    - run:
+        name: Trigger Render Deploy
+        command: |
+          curl -X POST https://api.render.com/deploy/srv-d0thl7qdbo4c739n1id0?key=_xE7v0GU4RQ
+
 workflows:
   version: 2
   test_app:
@@ -90,3 +94,6 @@ workflows:
       - test:
           requires:
             - setup
+      - deploy:
+          requires:
+            - test
