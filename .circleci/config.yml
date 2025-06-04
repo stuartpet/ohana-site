@@ -67,6 +67,18 @@ jobs:
             bundle _2.4.10_ install --jobs=4 --retry=3
 
       - run:
+          name: Install JS dependencies
+          command: yarn install
+
+      - run:
+          name: Build JavaScript assets
+          command: yarn build
+
+      - run:
+          name: Precompile Rails assets
+          command: bundle exec rails assets:precompile
+
+      - run:
           name: Run RSpec
           command: bin/rspec
 
