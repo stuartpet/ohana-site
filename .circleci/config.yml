@@ -3,7 +3,7 @@ version: 2.1
 executors:
   ruby-executor:
     docker:
-      - image: cimg/ruby:3.2.2
+      - image: cimg/ruby:3.2.2-node
         environment:
           RAILS_ENV: test
           POSTGRES_HOST: postgres
@@ -20,12 +20,6 @@ jobs:
     executor: ruby-executor
     steps:
       - checkout
-
-      - run:
-          name: Install OS dependencies
-          command: |
-            sudo apt-get update
-            sudo apt-get install -y libvips postgresql-client chromium-browser nodejs
 
       - run:
           name: Install Yarn (without sudo)
