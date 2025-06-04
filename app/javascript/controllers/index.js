@@ -1,12 +1,11 @@
 import { Application } from "@hotwired/stimulus"
+
+import CookieBannerController from "./cookie_banner_controller"
+import HelloController from "./hello_controller"
+// import any others manually here...
+
 const application = Application.start()
 
-const controllers = import.meta.glob("./**/*.controller.js", { eager: true })
-
-for (const path in controllers) {
-    const identifier = path
-        .split("/")
-        .pop()
-        .replace(".controller.js", "")
-    application.register(identifier, controllers[path].default)
-}
+application.register("cookie-banner", CookieBannerController)
+application.register("hello", HelloController)
+// register others...
