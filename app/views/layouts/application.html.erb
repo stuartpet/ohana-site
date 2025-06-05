@@ -8,81 +8,6 @@
   <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
   <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
 
-  <!-- Responsive nav fix -->
-  <style>
-      .navbar-links {
-          display: none;
-          flex-direction: column;
-          width: 100%;
-          margin-top: 1rem;
-      }
-
-      .navbar-links.open {
-          display: flex;
-      }
-
-      @media (min-width: 768px) {
-          .menu-toggle {
-              display: none !important;
-          }
-
-          .navbar-links {
-              display: flex !important;
-              flex-direction: row !important;
-              gap: 1rem;
-              margin-top: 0 !important;
-              width: auto !important;
-          }
-
-          .navbar-links.open {
-              display: flex !important;
-          }
-      }
-  </style>
-</head>
-
-<body>
-<!-- NAVBAR -->
-<header class="navbar" style="background-color: #9EB371; padding: 1rem 2rem; color: white;">
-  <nav style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
-    <!-- Hamburger (visible on mobile only) -->
-    <button class="menu-toggle" onclick="toggleMenu()" style="font-size: 2rem; background: none; border: none; color: white; display: block;">
-      ☰
-    </button>
-
-    <!-- Nav links -->
-    <div class="navbar-links" id="navbar-links" style="display: none; flex-direction: column; width: 100%; margin-top: 1rem;">
-      <%= link_to "About", root_path(anchor: "about"), style: "color: white; padding: 0.5rem 0; text-decoration: none;" %>
-      <%= link_to "Services", root_path(anchor: "services"), style: "color: white; padding: 0.5rem 0; text-decoration: none;" %>
-      <%= link_to "Clients", root_path(anchor: "clients"), style: "color: white; padding: 0.5rem 0; text-decoration: none;" %>
-      <%= link_to 'Contact', contacts_path, style: "color: white; padding: 0.5rem 0; text-decoration: none;" %>
-    </div>
-  </nav>
-</header>
-
-<!-- MAIN CONTENT -->
-<main style="max-width: 800px; margin: 0 auto;">
-  <%= yield %>
-</main>
-
-<!-- FOOTER -->
-<footer style="background-color: #9EB371; color: white; padding: 2rem; text-align: center;">
-  <p>&copy; <%= Time.current.year %> Ohana Consulting. All rights reserved.</p>
-  <p style="font-size: 0.8rem; color: #f0f0f0;">Created with care by Studio P Design</p>
-  <p><%= link_to "Privacy Statement", privacy_path, style: "color: white; text-decoration: underline;" %></p>
-</footer>
-
-<!DOCTYPE html>
-<html>
-<head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title><%= content_for?(:title) ? yield(:title) : "Ohana Consulting" %></title>
-  <%= csrf_meta_tags %>
-  <%= csp_meta_tag %>
-  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-  <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
-
-  <!-- Responsive nav and cookie banner styling -->
   <style>
       .navbar {
           background-color: #9EB371;
@@ -181,7 +106,6 @@
       #cookie-banner .cookie-buttons button.decline {
           background-color: #767771;
       }
-
   </style>
 </head>
 
@@ -190,10 +114,7 @@
 <!-- NAVBAR -->
 <header class="navbar">
   <nav>
-    <!-- Hamburger (visible on mobile only) -->
     <button class="menu-toggle" onclick="toggleMenu()">☰</button>
-
-    <!-- Nav links -->
     <div class="navbar-links" id="navbar-links">
       <%= link_to "About", root_path(anchor: "about"), style: "color: white; padding: 0.5rem 0; text-decoration: none;" %>
       <%= link_to "Services", root_path(anchor: "services"), style: "color: white; padding: 0.5rem 0; text-decoration: none;" %>
@@ -227,9 +148,6 @@
     </div>
   </div>
 </div>
-
-</body>
-</html>
 
 </body>
 </html>
