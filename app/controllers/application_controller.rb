@@ -16,5 +16,12 @@ class ApplicationController < ActionController::Base
   end
 
   # Only allow modern browsers supporting webp images, web push, badges, import maps, CSS nesting, and CSS :has.
-  allow_browser versions: :all
+  allow_browser versions: {
+    safari: 15..Float::INFINITY,
+    chrome: 100..Float::INFINITY,
+    firefox: 100..Float::INFINITY,
+    edge: 100..Float::INFINITY,
+    ios_safari: 15..Float::INFINITY,
+    samsung_internet: 15..Float::INFINITY
+  }
 end
