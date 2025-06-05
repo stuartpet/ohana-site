@@ -1,8 +1,8 @@
 import "@hotwired/turbo-rails"
 import "./controllers"
 
-// Optional: your smooth scroll logic can stay if it’s unrelated to the cookie banner
 document.addEventListener("DOMContentLoaded", function () {
+    // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener("click", function (e) {
             e.preventDefault();
@@ -17,4 +17,18 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     });
+
+    // Hamburger menu toggle logic
+    const toggle = document.querySelector(".menu-toggle");
+    const menu = document.getElementById("navbar-links");
+
+    if (toggle && menu) {
+        toggle.addEventListener("click", function () {
+            if (menu.style.display === "flex") {
+                menu.style.display = "none";
+            } else {
+                menu.style.display = "flex";
+            }
+        });
+    }
 });

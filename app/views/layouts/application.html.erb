@@ -7,22 +7,40 @@
   <%= csp_meta_tag %>
   <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
   <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+
+  <!-- Responsive nav fix -->
+  <style>
+      @media (min-width: 768px) {
+          .menu-toggle {
+              display: none !important;
+          }
+
+          #navbar-links {
+              display: flex !important;
+              flex-direction: row !important;
+              gap: 1rem;
+              margin-top: 0 !important;
+              width: auto !important;
+          }
+      }
+  </style>
 </head>
 
 <body>
 <!-- NAVBAR -->
 <header class="navbar" style="background-color: #9EB371; padding: 1rem 2rem; color: white;">
   <nav style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
-    <!-- Hamburger (for small screens) -->
-    <button class="menu-toggle" onclick="toggleMenu()" style="font-size: 1.5rem; background: none; border: none; color: white; display: none;">
+    <!-- Hamburger (visible on mobile only) -->
+    <button class="menu-toggle" onclick="toggleMenu()" style="font-size: 2rem; background: none; border: none; color: white; display: block;">
       ☰
     </button>
 
-    <div class="navbar-links" id="navbar-links" style="display: flex; gap: 1rem;">
-      <%= link_to "About", root_path(anchor: "about") %>
-      <%= link_to "Services", root_path(anchor: "services") %>
-      <%= link_to "Clients", root_path(anchor: "clients") %>
-      <%= link_to 'Contact', contacts_path %>
+    <!-- Nav links -->
+    <div class="navbar-links" id="navbar-links" style="display: none; flex-direction: column; width: 100%; margin-top: 1rem;">
+      <%= link_to "About", root_path(anchor: "about"), style: "color: white; padding: 0.5rem 0; text-decoration: none;" %>
+      <%= link_to "Services", root_path(anchor: "services"), style: "color: white; padding: 0.5rem 0; text-decoration: none;" %>
+      <%= link_to "Clients", root_path(anchor: "clients"), style: "color: white; padding: 0.5rem 0; text-decoration: none;" %>
+      <%= link_to 'Contact', contacts_path, style: "color: white; padding: 0.5rem 0; text-decoration: none;" %>
     </div>
   </nav>
 </header>
