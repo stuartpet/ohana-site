@@ -12,8 +12,8 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
             const nav = document.getElementById("navbar-links");
-            if (nav && nav.classList.contains("show")) {
-                nav.classList.remove("show");
+            if (nav && window.innerWidth < 768) {
+                nav.classList.remove("open");
             }
         });
     });
@@ -24,11 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (toggle && menu) {
         toggle.addEventListener("click", function () {
-            if (menu.style.display === "flex") {
-                menu.style.display = "none";
-            } else {
-                menu.style.display = "flex";
-            }
+            menu.classList.toggle("open");
         });
     }
 });

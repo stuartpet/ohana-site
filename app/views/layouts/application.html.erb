@@ -10,17 +10,32 @@
 
   <!-- Responsive nav fix -->
   <style>
+      .navbar-links {
+          display: none;
+          flex-direction: column;
+          width: 100%;
+          margin-top: 1rem;
+      }
+
+      .navbar-links.open {
+          display: flex;
+      }
+
       @media (min-width: 768px) {
           .menu-toggle {
               display: none !important;
           }
 
-          #navbar-links {
+          .navbar-links {
               display: flex !important;
               flex-direction: row !important;
               gap: 1rem;
               margin-top: 0 !important;
               width: auto !important;
+          }
+
+          .navbar-links.open {
+              display: flex !important;
           }
       }
   </style>
@@ -57,16 +72,21 @@
   <p><%= link_to "Privacy Statement", privacy_path, style: "color: white; text-decoration: underline;" %></p>
 </footer>
 
-<div id="cookie-banner" data-controller="cookie-banner" style="display: none; position: fixed; bottom: 0; width: 100%; background-color: #E0D9D2; color: #333; padding: 1rem; text-align: center; z-index: 1000; box-shadow: 0 -2px 6px rgba(0,0,0,0.1);">
-  <p style="margin: 0;">
-    We use cookies to understand where our visitors come from. No personal data is collected.
-    <button data-action="cookie-banner#accept" style="margin-left: 1rem; padding: 0.5rem 1rem; background-color: #9EB371; border: none; color: white; border-radius: 4px; cursor: pointer;">
-      Accept
-    </button>
-    <button data-action="cookie-banner#decline" style="margin-left: 0.5rem; padding: 0.5rem 1rem; background-color: #767771; border: none; color: white; border-radius: 4px; cursor: pointer;">
-      Decline
-    </button>
-  </p>
+<div id="navbar-links" class="navbar-links">
+  <div style="max-width: 500px; width: 100%;">
+    <p style="margin-bottom: 0.5rem;">
+      We use cookies to understand where our visitors come from. No personal data is collected.
+    </p>
+    <div style="display: flex; justify-content: center; gap: 0.5rem;">
+      <button data-action="cookie-banner#accept" style="padding: 0.5rem 1rem; background-color: #9EB371; border: none; color: white; border-radius: 4px; cursor: pointer;">
+        Accept
+      </button>
+      <button data-action="cookie-banner#decline" style="padding: 0.5rem 1rem; background-color: #767771; border: none; color: white; border-radius: 4px; cursor: pointer;">
+        Decline
+      </button>
+    </div>
+  </div>
 </div>
+
 </body>
 </html>
