@@ -7,6 +7,7 @@
     "esbuild": "^0.20.0"
   },
   "scripts": {
-    "build": "esbuild app/javascript/application.js --bundle --outdir=app/assets/builds --format=esm"
+    "build": "esbuild app/javascript/application.js --bundle --target=es2015 --format=iife --outdir=app/assets/builds"
+
   }
 }
