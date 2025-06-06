@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <%= favicon_link_tag 'favicon.png', type: 'image/png' %>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title><%= content_for?(:title) ? yield(:title) : "Ohana Consulting" %></title>
   <%= csrf_meta_tags %>
@@ -119,6 +120,7 @@
       <%= link_to "Services", root_path(anchor: "services"), style: "color: white; padding: 0.5rem 0; text-decoration: none;" %>
       <%= link_to "Clients", root_path(anchor: "clients"), style: "color: white; padding: 0.5rem 0; text-decoration: none;" %>
       <%= link_to 'Contact', contacts_path, style: "color: white; padding: 0.5rem 0; text-decoration: none;" %>
+      <%= link_to "Home", root_path(anchor: "top"), style: "color: white; padding: 0.5rem 0; text-decoration: none;" %>
     </div>
   </nav>
 </header>

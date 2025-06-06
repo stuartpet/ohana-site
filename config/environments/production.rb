@@ -109,15 +109,16 @@ Rails.application.configure do
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address:              "smtp.zoho.eu", # use `.com` if your Zoho account is US-based
+    address:              'smtp.ionos.co.uk',
     port:                 587,
-    domain:               "ohana-consulting.co.uk",
-    user_name:            ENV.fetch("SMTP_USER", nil),
-    password:             ENV.fetch("SMTP_PASSWORD", nil),
-    authentication:       "plain",
+    domain:               'ohana-consulting.co.uk',
+    user_name:            ENV['SMTP_USER'],   # your IONOS email
+    password:             ENV['SMTP_PASS'],   # your IONOS email password
+    authentication:       'plain',                # or 'login' — both are accepted
     enable_starttls_auto: true
   }
-  config.action_mailer.default_url_options = { host: 'ohana-consulting.co.uk', protocol: 'https' }
+
+  config.action_mailer.default_url_options = { host: 'www.ohana-consulting.co.uk', protocol: 'https' }
 
   config.session_store :cookie_store, key: '_ohana_consulting_session', secure: Rails.env.production?
 end

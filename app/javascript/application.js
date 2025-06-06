@@ -1,6 +1,6 @@
 import "@hotwired/turbo-rails"
 import "./controllers"
-
+import "./coming_soon"
 document.addEventListener("turbo:load", function () {
     // Smooth scroll for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -18,6 +18,16 @@ document.addEventListener("turbo:load", function () {
         });
     });
 
+    // Smooth scroll on load if URL has a hash
+    if (window.location.hash) {
+        const target = document.querySelector(window.location.hash);
+        if (target) {
+            setTimeout(() => {
+                target.scrollIntoView({ behavior: "smooth" });
+            }, 100); // Delay to allow layout to settle
+        }
+    }
+
     // Mobile menu toggle
     const toggle = document.querySelector(".menu-toggle");
     const menu = document.getElementById("navbar-links");
@@ -28,3 +38,5 @@ document.addEventListener("turbo:load", function () {
         });
     }
 });
+
+
