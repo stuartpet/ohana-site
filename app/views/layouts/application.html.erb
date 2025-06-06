@@ -70,7 +70,6 @@
           padding: 1rem;
           z-index: 1000;
           box-shadow: 0 -2px 6px rgba(0,0,0,0.1);
-          display: flex !important;
           justify-content: center;
           align-items: center;
       }
@@ -114,7 +113,7 @@
 <!-- NAVBAR -->
 <header class="navbar">
   <nav>
-    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    <button class="menu-toggle">☰</button>
     <div class="navbar-links" id="navbar-links">
       <%= link_to "About", root_path(anchor: "about"), style: "color: white; padding: 0.5rem 0; text-decoration: none;" %>
       <%= link_to "Services", root_path(anchor: "services"), style: "color: white; padding: 0.5rem 0; text-decoration: none;" %>
@@ -139,15 +138,12 @@
 <!-- COOKIE BANNER -->
 <div id="cookie-banner" data-controller="cookie-banner">
   <div class="cookie-content">
-    <p>
-      We use cookies to understand where our visitors come from. No personal data is collected.
-    </p>
+    <p>We use cookies to understand where our visitors come from. No personal data is collected.</p>
     <div class="cookie-buttons">
-      <button data-action="cookie-banner#accept" class="accept">Accept</button>
-      <button data-action="cookie-banner#decline" class="decline">Decline</button>
+      <button class="accept" data-action="click->cookie-banner#accept">Accept</button>
+      <button class="decline" data-action="click->cookie-banner#decline">Decline</button>
     </div>
   </div>
 </div>
-
 </body>
 </html>

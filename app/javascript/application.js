@@ -1,8 +1,8 @@
 import "@hotwired/turbo-rails"
 import "./controllers"
 
-document.addEventListener("DOMContentLoaded", function () {
-    // Smooth scrolling for anchor links
+document.addEventListener("turbo:load", function () {
+    // Smooth scroll for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener("click", function (e) {
             e.preventDefault();
@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // Hamburger menu toggle logic
+    // Mobile menu toggle
     const toggle = document.querySelector(".menu-toggle");
     const menu = document.getElementById("navbar-links");
 
@@ -26,30 +26,5 @@ document.addEventListener("DOMContentLoaded", function () {
         toggle.addEventListener("click", function () {
             menu.classList.toggle("open");
         });
-    }
-
-    // Cookie banner logic
-    const banner = document.getElementById("cookie-banner");
-    if (banner) {
-        const acceptBtn = banner.querySelector("button.accept");
-        const declineBtn = banner.querySelector("button.decline");
-
-        if (!localStorage.getItem("cookieConsent")) {
-            banner.style.display = "flex";
-        }
-
-        if (acceptBtn) {
-            acceptBtn.addEventListener("click", () => {
-                localStorage.setItem("cookieConsent", "accepted");
-                banner.style.display = "none";
-            });
-        }
-
-        if (declineBtn) {
-            declineBtn.addEventListener("click", () => {
-                localStorage.setItem("cookieConsent", "declined");
-                banner.style.display = "none";
-            });
-        }
     }
 });
