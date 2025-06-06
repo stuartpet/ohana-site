@@ -27,4 +27,29 @@ document.addEventListener("DOMContentLoaded", function () {
             menu.classList.toggle("open");
         });
     }
+
+    // Cookie banner logic
+    const banner = document.getElementById("cookie-banner");
+    if (banner) {
+        const acceptBtn = banner.querySelector("button.accept");
+        const declineBtn = banner.querySelector("button.decline");
+
+        if (!localStorage.getItem("cookieConsent")) {
+            banner.style.display = "flex";
+        }
+
+        if (acceptBtn) {
+            acceptBtn.addEventListener("click", () => {
+                localStorage.setItem("cookieConsent", "accepted");
+                banner.style.display = "none";
+            });
+        }
+
+        if (declineBtn) {
+            declineBtn.addEventListener("click", () => {
+                localStorage.setItem("cookieConsent", "declined");
+                banner.style.display = "none";
+            });
+        }
+    }
 });
