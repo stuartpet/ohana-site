@@ -1,14 +1,10 @@
 class PagesController < ApplicationController
-  layout :choose_layout
-  def privacy
+
+  def index
     render layout: "application"
   end
 
-  def coming_soon; end
-
-  private
-
-  def choose_layout
-    action_name == "coming_soon" ? false : "application"
+  def privacy
+    render layout: "application"
   end
 end

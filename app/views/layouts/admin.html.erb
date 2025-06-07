@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= stylesheet_link_tag "application", media: "all", "data-turbo-track": "reload" %>
+</head>
+<body>
+<%= link_to "Logout", admin_logout_path, method: :get, data: { turbo: false } %>
+<%= yield %>
+</body>
+</html>

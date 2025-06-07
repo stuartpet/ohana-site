@@ -1,46 +1,23 @@
-<h1>Contact Us</h1>
+<section class="section">
+  <h2>Contact Us</h2>
+  <p>We collect only the details we need to respond to your message. Your data won’t be stored or shared beyond this purpose.</p>
 
-<p>We collect only the details we need to respond to your message. Your data won’t be stored or shared beyond this purpose.</p>
+  <%= form_with model: @contact, local: true do |form| %>
+    <div class="form-group">
+      <%= form.label :name, "Your Name" %>
+      <%= form.text_field :name, class: "form-control" %>
+    </div>
 
-<% if @contact&.errors&.any? %>
-  <div class="error-messages">
-    <h3>There were errors with your submission:</h3>
-    <ul>
-      <% @contact.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
+    <div class="form-group">
+      <%= form.label :email, "Your Email" %>
+      <%= form.email_field :email, class: "form-control" %>
+    </div>
 
-<%= form_with model: @contact, url: contacts_path, method: :post, local: true do |f| %>
-  <div class="form-group">
-    <%= f.label :name, "Your Name" %><br>
-    <%= f.text_field :name, class: "form-control", required: true %>
-  </div>
+    <div class="form-group">
+      <%= form.label :message, "Your Message" %>
+      <%= form.text_area :message, rows: 5, class: "form-control" %>
+    </div>
 
-  <div class="form-group">
-    <%= f.label :email, "Your Email" %><br>
-    <%= f.email_field :email, class: "form-control", required: true %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :message, "Your Message" %><br>
-    <%= f.text_area :message, class: "form-control", rows: 5, required: true %>
-  </div>
-
-  <div style="display: none;">
-    <%= f.label :nickname, "Leave this field blank" %>
-    <%= f.text_field :nickname, value: "" %>
-  </div>
-
-  <%= f.submit "Send Message", class: "btn-submit" %>
-<% end %>
-
-<% if flash[:notice] %>
-  <div class="notice"><%= flash[:notice] %></div>
-<% end %>
-
-<% if flash[:alert] %>
-  <div class="alert"><%= flash[:alert] %></div>
-<% end %>
+    <%= form.submit "Send Message", class: "btn-submit" %>
+  <% end %>
+</section>

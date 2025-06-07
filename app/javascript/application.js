@@ -1,6 +1,5 @@
 import "@hotwired/turbo-rails"
 import "./controllers"
-import "./coming_soon"
 document.addEventListener("turbo:load", function () {
     // Smooth scroll for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {

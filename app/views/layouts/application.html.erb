@@ -1,144 +1,48 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <%= favicon_link_tag 'favicon.png', type: 'image/png' %>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title><%= content_for?(:title) ? yield(:title) : "Ohana Consulting" %></title>
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
-  <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+
+  <%= favicon_link_tag 'favicon.png', type: 'image/png' %>
+
+  <%= stylesheet_link_tag "application", media: "all", "data-turbo-track": "reload" %>
   <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
 
-  <style>
-      .navbar {
-          background-color: #9EB371;
-          padding: 1rem 2rem;
-          color: white;
-      }
-
-      .navbar nav {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          flex-wrap: wrap;
-      }
-
-      .menu-toggle {
-          font-size: 2rem;
-          background: none;
-          border: none;
-          color: white;
-          display: block;
-      }
-
-      .navbar-links {
-          display: none;
-          flex-direction: column;
-          width: 100%;
-          margin-top: 1rem;
-      }
-
-      .navbar-links.open {
-          display: flex;
-      }
-
-      @media (min-width: 768px) {
-          .menu-toggle {
-              display: none !important;
-          }
-
-          .navbar-links {
-              display: flex !important;
-              flex-direction: row !important;
-              gap: 1rem;
-              margin-top: 0 !important;
-              width: auto !important;
-          }
-
-          .navbar-links.open {
-              display: flex !important;
-          }
-      }
-
-      #cookie-banner {
-          display: none;
-          position: fixed;
-          bottom: 0;
-          left: 0;
-          right: 0;
-          width: 100vw;
-          background-color: #E0D9D2;
-          padding: 1rem;
-          z-index: 1000;
-          box-shadow: 0 -2px 6px rgba(0,0,0,0.1);
-          justify-content: center;
-          align-items: center;
-      }
-
-      #cookie-banner .cookie-content {
-          max-width: 500px;
-          width: 100%;
-          margin: 0 auto;
-          text-align: center;
-          color: #333;
-      }
-
-      #cookie-banner .cookie-buttons {
-          display: flex;
-          justify-content: center;
-          gap: 0.5rem;
-          flex-wrap: wrap;
-          margin-top: 0.5rem;
-      }
-
-      #cookie-banner .cookie-buttons button {
-          padding: 0.5rem 1rem;
-          border: none;
-          border-radius: 4px;
-          color: white;
-          cursor: pointer;
-      }
-
-      #cookie-banner .cookie-buttons button.accept {
-          background-color: #9EB371;
-      }
-
-      #cookie-banner .cookie-buttons button.decline {
-          background-color: #767771;
-      }
-  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
-
-<!-- NAVBAR -->
 <header class="navbar">
-  <nav>
-    <button class="menu-toggle">☰</button>
-    <div class="navbar-links" id="navbar-links">
-      <%= link_to "About", root_path(anchor: "about"), style: "color: white; padding: 0.5rem 0; text-decoration: none;" %>
-      <%= link_to "Services", root_path(anchor: "services"), style: "color: white; padding: 0.5rem 0; text-decoration: none;" %>
-      <%= link_to "Clients", root_path(anchor: "clients"), style: "color: white; padding: 0.5rem 0; text-decoration: none;" %>
-      <%= link_to 'Contact', contacts_path, style: "color: white; padding: 0.5rem 0; text-decoration: none;" %>
-      <%= link_to "Home", root_path(anchor: "top"), style: "color: white; padding: 0.5rem 0; text-decoration: none;" %>
+  <nav class="nav-container">
+    <div class="navbar-links">
+      <%= link_to "About", root_path(anchor: "about") %>
+      <%= link_to "Services", root_path(anchor: "services") %>
+      <%= link_to "Clients", root_path(anchor: "clients") %>
+      <%= link_to "Contact", contacts_path %>
+      <%= link_to "Home", root_path(anchor: "top") %>
+    </div>
+    <div class="navbar-right">
+      <%= link_to " ", "https://www.linkedin.com/in/kate-mullins-4209719/", target: "_blank", rel: "noopener", class: "linkedin-icon" %>
     </div>
   </nav>
 </header>
 
-<!-- MAIN CONTENT -->
-<main style="max-width: 800px; margin: 0 auto;">
+<main>
   <%= yield %>
 </main>
 
-<!-- FOOTER -->
-<footer style="background-color: #9EB371; color: white; padding: 2rem; text-align: center;">
+<footer class="footer">
   <p>&copy; <%= Time.current.year %> Ohana Consulting. All rights reserved.</p>
-  <p style="font-size: 0.8rem; color: #f0f0f0;">Created with care by Studio P Design</p>
-  <p><%= link_to "Privacy Statement", privacy_path, style: "color: white; text-decoration: underline;" %></p>
+  <p class="footer-note">Created with care by Studio P Design</p>
+  <%= link_to "Privacy Statement", privacy_path, class: "footer-link" %>
+  <p><%= link_to "Admin", admin_contacts_path, data: { turbo: false } %></p>
 </footer>
 
-<!-- COOKIE BANNER -->
-<div id="cookie-banner" data-controller="cookie-banner">
+<div id="cookie-banner" data-controller="cookie-banner" class="cookie-banner">
   <div class="cookie-content">
     <p>We use cookies to understand where our visitors come from. No personal data is collected.</p>
     <div class="cookie-buttons">
