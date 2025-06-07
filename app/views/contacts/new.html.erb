@@ -1,23 +1,96 @@
-<section class="section">
-  <h2>Contact Us</h2>
-  <p>We collect only the details we need to respond to your message. Your data won’t be stored or shared beyond this purpose.</p>
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= content_for?(:title) ? yield(:title) : "Ohana Consulting" %></title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-  <%= form_with model: @contact, local: true do |form| %>
-    <div class="form-group">
-      <%= form.label :name, "Your Name" %>
-      <%= form.text_field :name, class: "form-control" %>
+  <%= favicon_link_tag 'favicon.png', type: 'image/png' %>
+  <%= stylesheet_link_tag "application", media: "all", "data-turbo-track": "reload" %>
+  <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+<!-- Sticky Navbar -->
+<header class="navbar">
+  <nav class="nav-container">
+    <div class="logo">
+      <%= image_tag "ohana_logo.png", alt: "Ohana Consulting" %>
     </div>
-
-    <div class="form-group">
-      <%= form.label :email, "Your Email" %>
-      <%= form.email_field :email, class: "form-control" %>
+    <div class="navbar-links">
+      <%= link_to "Home", root_path(anchor: "home") %>
+      <%= link_to "About", root_path(anchor: "about") %>
+      <%= link_to "Services", root_path(anchor: "services") %>
+      <%= link_to "Projects", root_path(anchor: "projects") %>
+      <%= link_to "Contact", contacts_path %>
     </div>
-
-    <div class="form-group">
-      <%= form.label :message, "Your Message" %>
-      <%= form.text_area :message, rows: 5, class: "form-control" %>
+    <div class="navbar-right">
+      <%= link_to " ", "https://www.linkedin.com/in/kate-mullins-4209719/", target: "_blank", rel: "noopener", class: "linkedin-icon" %>
     </div>
+  </nav>
+</header>
 
-    <%= form.submit "Send Message", class: "btn-submit" %>
-  <% end %>
+<!-- Hero Video -->
+<section class="contact-hero">
+  <video autoplay muted loop playsinline class="hero-video">
+    <source src="<%= asset_path('contact.mp4') %>" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <div class="hero-overlay">
+    <h1>Get in Touch</h1>
+  </div>
 </section>
+
+<div class="contact-info-block">
+  <i class="fa-brands fa-linkedin"></i>
+  <%= link_to "LinkedIn", "https://www.linkedin.com/in/kate-mullins-4209719/", target: "_blank", rel: "noopener" %>
+</div>
+
+<!-- Contact Form -->
+<section class="contact-form-wrapper">
+  <div class="form-container">
+    <h2>Contact Us</h2>
+    <p>We collect only the details we need to respond to your message.</p>
+
+    <%= form_with model: @contact, local: true do |form| %>
+      <div class="form-group">
+        <%= form.label :name, "Your Name" %>
+        <%= form.text_field :name, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :email, "Your Email" %>
+        <%= form.email_field :email, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= label_tag :subject, "Subject" %>
+        <%= text_field_tag :subject, nil, class: "form-control" %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label :message, "Your Message" %>
+        <%= form.text_area :message, rows: 5, class: "form-control" %>
+      </div>
+
+      <%= form.submit "Send Message", class: "btn-submit" %>
+    <% end %>
+  </div>
+</section>
+
+<!-- Cookie Banner -->
+<div id="cookie-banner" data-controller="cookie-banner" class="cookie-banner">
+  <div class="cookie-content">
+    <p>We use cookies to understand where our visitors come from. No personal data is collected.</p>
+    <div class="cookie-buttons">
+      <button class="accept" data-action="click->cookie-banner#accept">Accept</button>
+      <button class="decline" data-action="click->cookie-banner#decline">Decline</button>
+    </div>
+  </div>
+</div>
+</body>
+</html>

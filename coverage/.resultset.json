@@ -23,7 +23,13 @@
         "lines": [
           0,
           0,
+          0,
           null,
+          0,
+          0,
+          0,
+          null,
+          0,
           0,
           0,
           0,
@@ -119,12 +125,16 @@
           0,
           0,
           0,
-          0,
           null,
           0,
-          null,
           0,
-          null,
+          0,
+          0
+        ],
+        "branches": {}
+      },
+      "/Users/stuart_pethurst/ohana_site/app/controllers/projects_controller.rb": {
+        "lines": [
           0,
           0,
           0,
@@ -134,6 +144,16 @@
       },
       "/Users/stuart_pethurst/ohana_site/app/controllers/site_visits_controller.rb": {
         "lines": [
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          0,
+          0,
           0,
           0,
           0,
@@ -177,8 +197,16 @@
         ],
         "branches": {}
       },
+      "/Users/stuart_pethurst/ohana_site/app/helpers/projects_helper.rb": {
+        "lines": [
+          0,
+          0
+        ],
+        "branches": {}
+      },
       "/Users/stuart_pethurst/ohana_site/app/helpers/site_visits_helper.rb": {
         "lines": [
+          null,
           0,
           0
         ],
@@ -249,6 +277,6 @@
         "branches": {}
       }
     },
-    "timestamp": 1749229429
+    "timestamp": 1749311604
   }
 }

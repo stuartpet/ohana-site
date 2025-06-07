@@ -1,20 +1,62 @@
-<section class="hero">
-  <div class="hero-logo-card">
-    <%= image_tag "ohana_logo.png", alt: "Ohana Consulting" %>
+<section class="hero" id="top">
+  <video autoplay muted loop playsinline class="hero-video">
+    <source src="<%= asset_path('hero-bg.mp4') %>" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <div class="hero-overlay">
+    <h1>Aligning property with purpose</h1>
   </div>
 </section>
 
-<section id="about" class="info-card">
-  <h2>About</h2>
-  <p>We’re a specialist property consultancy offering tailored strategic advice and estate management services.</p>
+<section id="why-ohana" class="homepage-section">
+  <div class="homepage-text">
+    <h2>Why Ohana?</h2>
+    <p>
+      Ohana Consulting is a specialist property consultancy offering strategic advice and estate management tailored to your needs.
+    </p>
+  </div>
+  <div class="homepage-image">
+    <%= image_tag "why_ohana.jpg" %>
+  </div>
 </section>
 
-<section id="services" class="info-card">
-  <h2>Services</h2>
-  <p>We offer lease advisory, property strategy, occupancy planning, and transaction management.</p>
+<section id="projects" class="homepage-section">
+  <div class="homepage-image">
+    <%= image_tag "clients.jpg" %>
+  </div>
+  <div class="homepage-text">
+    <h2>Who we work with</h2>
+    <p>
+      We support local authorities and central government services with their estate strategies and property needs.
+    </p>
+    <%= link_to "View projects →", projects_path, class: "btn-cta" %>
+  </div>
 </section>
 
-<section id="clients" class="info-card">
-  <h2>Clients</h2>
-  <p>We’ve worked with major corporations across sectors — client logos and testimonials will be added soon.</p>
+<section id="services" class="homepage-section">
+  <div class="homepage-text">
+    <h2>How We Help</h2>
+    <p>We support clients with strategy, planning, transactions, and practical delivery. Whether you're NHS, local government or private sector — Ohana brings insight and confidence to every property decision.</p>
+    <%= link_to "View services →", services_path, class: "btn-cta" %>
+  </div>
+  <div class="homepage-image">
+    <%= image_tag "services.jpg" %>
+  </div>
 </section>
+
+<section id="about" class="homepage-section">
+  <div class="homepage-image">
+    <%= image_tag "about.jpg" %>
+  </div>
+  <div class="homepage-text">
+    <h2>About</h2>
+    <p>
+      Kate founded Ohana Consulting to align property with purpose. With 20+ years of experience, she supports clients across public and private sectors with strategic and people-first property advice.
+    </p>
+    <%= link_to "Read more →", about_path, class: "btn-cta" %>
+  </div>
+</section>
+
+
+
+

@@ -18,12 +18,15 @@
 <body>
 <header class="navbar">
   <nav class="nav-container">
+    <div class="logo">
+      <%= image_tag "ohana_logo.png", alt: "Ohana Consulting" %>
+    </div>
     <div class="navbar-links">
+      <%= link_to "Home", root_path(anchor: "home") %>
       <%= link_to "About", root_path(anchor: "about") %>
       <%= link_to "Services", root_path(anchor: "services") %>
-      <%= link_to "Clients", root_path(anchor: "clients") %>
+      <%= link_to "Projects", root_path(anchor: "projects") %>
       <%= link_to "Contact", contacts_path %>
-      <%= link_to "Home", root_path(anchor: "top") %>
     </div>
     <div class="navbar-right">
       <%= link_to " ", "https://www.linkedin.com/in/kate-mullins-4209719/", target: "_blank", rel: "noopener", class: "linkedin-icon" %>
@@ -39,7 +42,6 @@
   <p>&copy; <%= Time.current.year %> Ohana Consulting. All rights reserved.</p>
   <p class="footer-note">Created with care by Studio P Design</p>
   <%= link_to "Privacy Statement", privacy_path, class: "footer-link" %>
-  <p><%= link_to "Admin", admin_contacts_path, data: { turbo: false } %></p>
 </footer>
 
 <div id="cookie-banner" data-controller="cookie-banner" class="cookie-banner">
@@ -51,5 +53,7 @@
     </div>
   </div>
 </div>
+
+<a href="#" class="scroll-to-top" data-action="click->scroll#toTop">↑</a>
 </body>
 </html>

@@ -20,7 +20,7 @@ A clean, elegant web presence for a boutique property consultancy. Built to be f
 ## 🚀 Features
 
 - Smooth-scroll single-page layout
-- "About", "Services", and "Clients" sections
+- "About", "Services", and "Projects" sections
 - Secure contact form with honeypot spam protection
 - Admin inbox (WIP)
 - Responsive design for all screen sizes
