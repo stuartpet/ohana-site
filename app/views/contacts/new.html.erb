@@ -45,11 +45,6 @@
   </div>
 </section>
 
-<div class="contact-info-block">
-  <i class="fa-brands fa-linkedin"></i>
-  <%= link_to "LinkedIn", "https://www.linkedin.com/in/kate-mullins-4209719/", target: "_blank", rel: "noopener" %>
-</div>
-
 <!-- Contact Form -->
 <section class="contact-form-wrapper">
   <div class="form-container">
@@ -79,6 +74,9 @@
 
       <%= form.submit "Send Message", class: "btn-submit" %>
     <% end %>
+  </div>
+  <div class="contact-side-info">
+    <%= link_to "Kate on LinkedIn", "https://www.linkedin.com/in/kate-mullins-4209719/", target: "_blank", rel: "noopener", class: "linkedin-button" %>
   </div>
 </section>
 
