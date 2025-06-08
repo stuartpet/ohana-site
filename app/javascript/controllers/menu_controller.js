@@ -4,6 +4,7 @@ export default class extends Controller {
     static targets = ["menu", "button", "overlay"];
 
     toggle() {
+        console.log("Menu toggle fired")
         this.menuTarget.classList.toggle("open");
         this.buttonTarget.classList.toggle("open");
         this.overlayTarget.classList.toggle("open");
