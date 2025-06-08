@@ -13,15 +13,6 @@ Rails.application.routes.draw do
   get "/contacts", to: redirect("/contact")
   resources :contacts, only: [:new, :create]
 
-  # Admin
-  namespace :admin do
-    get "contacts/index"
-    resources :contacts, only: [:index]
-  end
-
-  # Admin logout (outside namespace to avoid /admin/admin/logout)
-  get "admin/logout", to: "admin/contacts#logout", as: :admin_logout
-
   # Common routes
   get "coming_soon", to: "pages#coming_soon"
   get "up", to: "rails/health#show", as: :rails_health_check

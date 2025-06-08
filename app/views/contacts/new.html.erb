@@ -49,6 +49,12 @@
 <section class="contact-form-wrapper">
   <div class="contact-layout">
     <div class="form-container">
+      <% if flash[:notice] %>
+        <div class="flash flash-notice" role="alert" aria-live="assertive"><%= flash[:notice] %></div>
+      <% elsif flash[:alert] %>
+        <div class="flash flash-alert" role="alert" aria-live="assertive"><%= flash[:alert] %></div>
+      <% end %>
+
       <h2>Contact Us</h2>
       <p>Contact us by email or via LinkedIn. We collect only the details we need to respond.</p>
 
@@ -56,21 +62,33 @@
         <div class="form-group">
           <%= form.label :name, "Your Name" %>
           <%= form.text_field :name, class: "form-control" %>
+          <% if @contact.errors[:name].any? %>
+            <div class="field-error"><%= @contact.errors[:name].first %></div>
+          <% end %>
         </div>
 
         <div class="form-group">
           <%= form.label :email, "Your Email" %>
           <%= form.email_field :email, class: "form-control" %>
+          <% if @contact.errors[:email].any? %>
+            <div class="field-error"><%= @contact.errors[:email].first %></div>
+          <% end %>
         </div>
 
         <div class="form-group">
           <%= form.label :subject, "Subject" %>
           <%= form.text_field :subject, class: "form-control" %>
+          <% if @contact.errors[:subject].any? %>
+            <div class="field-error"><%= @contact.errors[:subject].first %></div>
+          <% end %>
         </div>
 
         <div class="form-group">
           <%= form.label :message, "Your Message" %>
           <%= form.text_area :message, rows: 5, class: "form-control" %>
+          <% if @contact.errors[:message].any? %>
+            <div class="field-error"><%= @contact.errors[:message].first %></div>
+          <% end %>
         </div>
 
         <%= form.submit "Send Message", class: "btn-submit" %>

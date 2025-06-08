@@ -18,7 +18,12 @@ RSpec.describe 'Contacts', type: :request do
 
   describe 'POST /contact' do
     let(:valid_params) do
-      { name: 'Test User', email: 'test@example.com', message: 'Hello!' }
+      {
+        name: 'Test User',
+        email: 'test@example.com',
+        subject: 'Enquiry',
+        message: 'Hello!'
+      }
     end
 
     it 'sends an email and redirects with flash message' do
@@ -31,10 +36,13 @@ RSpec.describe 'Contacts', type: :request do
     end
 
     it 're-renders the form with errors on failure' do
-      post contacts_path, params: { contact: { name: '', email: '', message: '' } }
+      post contacts_path, params: {
+        contact: { name: '', email: '', subject: '', message: '' }
+      }
 
       expect(response).to have_http_status(:unprocessable_entity)
       expect(response.body).to include("There was a problem with your submission.")
+      expect(response.body).to include("class=\"field-error\"")
     end
   end
 end

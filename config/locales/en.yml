@@ -31,6 +31,4 @@ en:
   contacts:
     notice: "Thank you for your message. We will be in touch soon."
     failure: "There was a problem with your submission."
-  admin:
-    logged_out: "Logged out successfully."
 

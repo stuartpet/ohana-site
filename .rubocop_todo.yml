@@ -130,8 +130,6 @@ Style/BlockComments:
 # SupportedStylesForModules: ~, nested, compact
 Style/ClassAndModuleChildren:
   Exclude:
-    - 'app/controllers/admin/contacts_controller.rb'
-    - 'app/helpers/admin/contacts_helper.rb'
     - 'config/initializers/rack_attack.rb'
 
 # Offense count: 14
@@ -140,11 +138,9 @@ Style/Documentation:
   Exclude:
     - 'spec/**/*'
     - 'test/**/*'
-    - 'app/controllers/admin/contacts_controller.rb'
     - 'app/controllers/application_controller.rb'
     - 'app/controllers/contacts_controller.rb'
     - 'app/controllers/pages_controller.rb'
-    - 'app/helpers/admin/contacts_helper.rb'
     - 'app/helpers/application_helper.rb'
     - 'app/helpers/contacts_helper.rb'
     - 'app/helpers/pages_helper.rb'

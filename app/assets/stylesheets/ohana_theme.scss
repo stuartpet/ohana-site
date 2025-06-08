@@ -829,6 +829,31 @@ body {
     }
   }
 }
+.flash {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 4px;
+  font-weight: bold;
+  text-align: center;
+
+  &.flash-notice {
+    background-color: #dff0d8;
+    color: #3c763d;
+  }
+
+  &.flash-alert {
+    background-color: #f2dede;
+    color: #a94442;
+  }
+}
+
+.field-error {
+  background-color: #ffe6e6;
+  color: #a94442;
+  padding: 0.5rem 1rem;
+  margin-bottom: 0.5rem;
+  border-left: 4px solid #a94442;
+}
 
 
 

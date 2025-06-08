@@ -2,7 +2,10 @@ require 'rails_helper'
 
 RSpec.describe ContactMailer, type: :mailer do
   describe 'contact_email' do
-    let(:contact) { Contact.new(name: 'Jane', email: 'jane@example.com', message: 'Hi there') }
+    let(:contact) do
+      Contact.new(name: 'Jane', email: 'jane@example.com', subject: 'New contact from Jane', message: 'Hello there')
+    end
+
     let(:mail) { described_class.contact_email(contact) }
 
     it 'renders the subject' do
@@ -10,12 +13,12 @@ RSpec.describe ContactMailer, type: :mailer do
     end
 
     it 'sends to the configured email' do
-      expect(mail.to).to eq([ENV.fetch('OHANA_CONTACT_EMAIL', 'example@example.com')])
+      expect(mail.to).to eq([ENV.fetch('CONTACT_EMAIL', 'example@example.com')])
     end
 
     it 'includes the name and message in the body' do
       expect(mail.body.encoded).to include('Jane')
-      expect(mail.body.encoded).to include('Hi there')
+      expect(mail.body.encoded).to include('Hello there')
     end
   end
 end
