@@ -1,7 +1,7 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-    static targets = ["menu", "button"]
+    static targets = ["menu", "button", "overlay"]
 
     toggle() {
         this.menuTarget.classList.toggle("open")
@@ -11,7 +11,7 @@ export default class extends Controller {
         const isMobile = window.innerWidth <= 768
         const links = this.menuTarget.querySelectorAll("a")
 
-        if (!isMobile) return // Exit early on desktop — no unpack/pack logic
+        if (!isMobile) return // Skip animation on desktop
 
         if (this.menuTarget.classList.contains("open")) {
             links.forEach((link, i) => {

@@ -22,8 +22,7 @@
       <%= image_tag "ohana_logo.png", alt: "Ohana Consulting" %>
     </div>
     <!-- Burger button -->
-    <div class="burger" data-action="click->menu#toggle" data-menu-target="button">
-      <div class="mobile-menu-overlay" data-menu-target="overlay">
+    <div class="burger-menu" data-action="click->menu#toggle" data-menu-target="button">
       <span></span>
       <span></span>
       <span></span>
@@ -40,6 +39,8 @@
     <div class="navbar-right">
       <%= link_to " ", "https://www.linkedin.com/in/kate-mullins-4209719/", target: "_blank", rel: "noopener", class: "linkedin-icon" %>
     </div>
+    <!-- Optional overlay for dark background -->
+    <div class="mobile-menu-overlay" data-menu-target="overlay"></div>
   </nav>
 </header>
 

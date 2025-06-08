@@ -84,24 +84,38 @@ body.menu-open {
   .mobile-menu-overlay {
     display: none;
     position: fixed;
-    top: 60px;
+    top: 0;
     left: 0;
+    height: 100%;
     width: 100%;
-    height: calc(100% - 60px);
     background: rgba(0, 0, 0, 0.3);
     z-index: 998;
 
     &.open {
       display: block;
-      animation: fadeIn 0.3s ease;
+    }
+
+    @media (min-width: 769px) {
+      display: none !important; // never show on desktop
     }
   }
 
-  // Animated mobile nav links
   .navbar-links {
     display: flex;
     gap: 1.5rem;
 
+    a {
+      color: $navy;
+      font-weight: bold;
+      font-size: 1.2rem;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: $green;
+      }
+    }
+
+    // MOBILE ONLY
     @media (max-width: 768px) {
       display: none;
       flex-direction: column;
@@ -117,52 +131,28 @@ body.menu-open {
       opacity: 0;
       transition: transform 0.4s ease, opacity 0.4s ease;
       z-index: 999;
-    }
 
-    &.open {
-      display: flex;
-      transform: scaleY(1);
-      opacity: 1;
-    }
-
-    a {
-      color: $navy;
-      font-weight: bold;
-      font-size: 1.2rem;
-      transition: color 0.3s ease;
-
-      &:hover {
-        color: $green;
-      }
-
-      @media (max-width: 768px) {
-        opacity: 0;
-      }
-
-      // Only fade in when open, mobile only
-      @media (max-width: 768px) {
-        .navbar-links.open & {
-          animation: fadeInLink 0.4s ease forwards;
-        }
-      }
-
-      &:nth-child(1) { animation-delay: 0.1s; }
-      &:nth-child(2) { animation-delay: 0.2s; }
-      &:nth-child(3) { animation-delay: 0.3s; }
-      &:nth-child(4) { animation-delay: 0.4s; }
-    }
-
-    @media (max-width: 768px) {
-      .navbar-links a.unpack {
+      &.open {
+        display: flex;
+        transform: scaleY(1);
         opacity: 1;
-        transform: translateY(0);
-        transition: transform 0.3s ease, opacity 0.3s ease;
       }
 
-      .navbar-links a.pack {
+      a {
         opacity: 0;
         transform: translateY(-20px);
-        transition: transform 0.2s ease, opacity 0.2s ease;
+
+        &.unpack {
+          opacity: 1;
+          transform: translateY(0);
+          transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        &.pack {
+          opacity: 0;
+          transform: translateY(-20px);
+          transition: transform 0.2s ease, opacity 0.2s ease;
+        }
       }
     }
   }
