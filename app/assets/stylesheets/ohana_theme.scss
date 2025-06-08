@@ -618,11 +618,26 @@ body.menu-open {
   }
 }
 
-.homepage-section.reverse {
-  flex-direction: row-reverse;
+.homepage-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto 4rem;
+  padding: 2rem;
 
   @media (max-width: 768px) {
     flex-direction: column;
+  }
+
+  &.reverse {
+    flex-direction: row-reverse;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+    }
   }
 }
 
