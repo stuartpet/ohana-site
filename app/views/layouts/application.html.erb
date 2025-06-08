@@ -4,6 +4,7 @@
   <title><%= content_for?(:title) ? yield(:title) : "Ohana Consulting" %></title>
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <%= favicon_link_tag 'favicon.png', type: 'image/png' %>
 
@@ -21,14 +22,15 @@
     <div class="logo">
       <%= image_tag "ohana_logo.png", alt: "Ohana Consulting" %>
     </div>
+
     <!-- Burger button -->
     <div class="burger-menu" data-action="click->menu#toggle" data-menu-target="button">
       <span></span>
       <span></span>
       <span></span>
-      </div>
     </div>
 
+    <!-- Navbar links -->
     <div class="navbar-links" data-menu-target="menu">
       <%= link_to "Home", root_path(anchor: "home") %>
       <%= link_to "About", root_path(anchor: "about") %>
@@ -36,10 +38,12 @@
       <%= link_to "Projects", root_path(anchor: "projects") %>
       <%= link_to "Contact", contacts_path %>
     </div>
+
     <div class="navbar-right">
       <%= link_to " ", "https://www.linkedin.com/in/kate-mullins-4209719/", target: "_blank", rel: "noopener", class: "linkedin-icon" %>
     </div>
-    <!-- Optional overlay for dark background -->
+
+    <!-- Mobile overlay -->
     <div class="mobile-menu-overlay" data-menu-target="overlay"></div>
   </nav>
 </header>

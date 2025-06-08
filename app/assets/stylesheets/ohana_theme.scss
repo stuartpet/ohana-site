@@ -104,14 +104,50 @@ body.menu-open {
     display: flex;
     gap: 1.5rem;
 
+    @media (max-width: 768px) {
+      display: none;
+      flex-direction: column;
+      background-color: $light-grey;
+      position: absolute;
+      top: 60px;
+      right: 0;
+      width: 100%;
+      padding: 1rem 2rem;
+      text-align: right;
+      transform: scaleY(0);
+      transform-origin: top;
+      opacity: 0;
+      transition: transform 0.4s ease, opacity 0.4s ease;
+      z-index: 999;
+    }
+
+    &.open {
+      @media (max-width: 768px) {
+        display: flex;
+        transform: scaleY(1);
+        opacity: 1;
+      }
+    }
+
     a {
       color: $navy;
       font-weight: bold;
       font-size: 1.2rem;
-      transition: color 0.3s ease;
 
       &:hover {
         color: $green;
+      }
+
+      &.unpack {
+        opacity: 1;
+        transform: translateY(0);
+        transition: transform 0.3s ease, opacity 0.3s ease;
+      }
+
+      &.pack {
+        opacity: 0;
+        transform: translateY(-20px);
+        transition: transform 0.2s ease, opacity 0.2s ease;
       }
     }
 
@@ -982,6 +1018,8 @@ body.menu-open {
 .burger-menu {
   display: none;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
   z-index: 1001;
 
@@ -1010,44 +1048,6 @@ body.menu-open {
   }
 }
 
-.navbar-links {
-  display: flex;
-  gap: 1.5rem;
-
-  @media (max-width: 768px) {
-    flex-direction: column;
-    position: absolute;
-    top: 60px;
-    right: 0;
-    background: $light-grey;
-    width: 100%;
-    padding: 1.5rem;
-    text-align: right;
-    transform: scaleY(0);
-    transform-origin: top;
-    opacity: 0;
-    transition: transform 0.4s ease, opacity 0.4s ease;
-    z-index: 999;
-    display: none;
-
-    a {
-      font-size: 2rem;
-      padding: 1rem 0;
-      color: white;
-      text-decoration: none;
-
-      &:hover {
-        text-decoration: underline;
-      }
-    }
-  }
-
-  &.open {
-    display: flex;
-    transform: scaleY(1);
-    opacity: 1;
-  }
-}
 
 
 
