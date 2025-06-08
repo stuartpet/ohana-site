@@ -7,4 +7,9 @@ const application = Application.start()
 application.register("cookie-banner", CookieBannerController)
 application.register("menu", MenuController)
 application.register("video-reload", Video_reload_controller)
+
+application.debug = false
+window.Stimulus = application
+
+export { application }
 // register others...
