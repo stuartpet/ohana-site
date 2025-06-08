@@ -1,228 +1,6 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/stuart_pethurst/ohana_site/app/helpers/application_helper.rb": {
-        "lines": [
-          1,
-          null
-        ],
-        "branches": {}
-      },
-      "/Users/stuart_pethurst/ohana_site/app/helpers/coming_soon_helper.rb": {
-        "lines": [
-          null,
-          1,
-          null
-        ],
-        "branches": {}
-      },
-      "/Users/stuart_pethurst/ohana_site/app/helpers/contacts_helper.rb": {
-        "lines": [
-          1,
-          null
-        ],
-        "branches": {}
-      },
-      "/Users/stuart_pethurst/ohana_site/app/helpers/pages_helper.rb": {
-        "lines": [
-          1,
-          null
-        ],
-        "branches": {}
-      },
-      "/Users/stuart_pethurst/ohana_site/app/helpers/projects_helper.rb": {
-        "lines": [
-          null,
-          1,
-          null
-        ],
-        "branches": {}
-      },
-      "/Users/stuart_pethurst/ohana_site/app/helpers/site_visits_helper.rb": {
-        "lines": [
-          null,
-          1,
-          null
-        ],
-        "branches": {}
-      },
-      "/Users/stuart_pethurst/ohana_site/app/mailers/contact_mailer.rb": {
-        "lines": [
-          1,
-          1,
-          4,
-          4,
-          null,
-          null,
-          null,
-          null,
-          null
-        ],
-        "branches": {}
-      },
-      "/Users/stuart_pethurst/ohana_site/app/mailers/application_mailer.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          null
-        ],
-        "branches": {}
-      },
-      "/Users/stuart_pethurst/ohana_site/app/models/contact.rb": {
-        "lines": [
-          null,
-          1,
-          1,
-          null,
-          1,
-          null,
-          1,
-          1,
-          null
-        ],
-        "branches": {}
-      },
-      "/Users/stuart_pethurst/ohana_site/app/models/application_record.rb": {
-        "lines": [
-          1,
-          1,
-          null
-        ],
-        "branches": {}
-      },
-      "/Users/stuart_pethurst/ohana_site/app/models/site_visit.rb": {
-        "lines": [
-          1,
-          null
-        ],
-        "branches": {}
-      },
-      "/Users/stuart_pethurst/ohana_site/app/controllers/pages_controller.rb": {
-        "lines": [
-          1,
-          1,
-          2,
-          null,
-          null,
-          1,
-          null,
-          null,
-          1,
-          2,
-          null,
-          null
-        ],
-        "branches": {}
-      },
-      "/Users/stuart_pethurst/ohana_site/app/controllers/application_controller.rb": {
-        "lines": [
-          1,
-          1,
-          null,
-          1,
-          null,
-          1,
-          11,
-          null,
-          9,
-          null,
-          9,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          1,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null
-        ],
-        "branches": {
-          "[:unless, 0, 7, 4, 7, 30]": {
-            "[:else, 1, 7, 4, 7, 30]": 9,
-            "[:then, 2, 7, 4, 7, 10]": 2
-          }
-        }
-      },
-      "/Users/stuart_pethurst/ohana_site/app/controllers/contacts_controller.rb": {
-        "lines": [
-          1,
-          1,
-          2,
-          null,
-          null,
-          1,
-          null,
-          2,
-          null,
-          2,
-          null,
-          2,
-          1,
-          1,
-          1,
-          null,
-          1,
-          null,
-          null,
-          null,
-          1,
-          1,
-          1,
-          null,
-          null,
-          1,
-          2,
-          null,
-          0,
-          null,
-          null,
-          1,
-          null,
-          1,
-          2,
-          null,
-          null
-        ],
-        "branches": {
-          "[:if, 0, 12, 4, 18, 7]": {
-            "[:then, 1, 13, 6, 15, 46]": 1,
-            "[:else, 2, 17, 6, 17, 18]": 1
-          },
-          "[:if, 3, 27, 4, 27, 52]": {
-            "[:then, 4, 27, 4, 27, 10]": 2,
-            "[:else, 5, 27, 4, 27, 52]": 0
-          }
-        }
-      },
-      "/Users/stuart_pethurst/ohana_site/app/controllers/projects_controller.rb": {
-        "lines": [
-          null,
-          1,
-          1,
-          null
-        ],
-        "branches": {}
-      },
-      "/Users/stuart_pethurst/ohana_site/app/controllers/site_visits_controller.rb": {
-        "lines": [
-          null,
-          1,
-          1,
-          1,
-          null,
-          null
-        ],
-        "branches": {}
-      },
       "/Users/stuart_pethurst/ohana_site/app/channels/application_cable/channel.rb": {
         "lines": [
           0,
@@ -241,6 +19,162 @@
         ],
         "branches": {}
       },
+      "/Users/stuart_pethurst/ohana_site/app/controllers/application_controller.rb": {
+        "lines": [
+          0,
+          0,
+          null,
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {}
+      },
+      "/Users/stuart_pethurst/ohana_site/app/controllers/contacts_controller.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          null,
+          0,
+          null,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {}
+      },
+      "/Users/stuart_pethurst/ohana_site/app/controllers/pages_controller.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {}
+      },
+      "/Users/stuart_pethurst/ohana_site/app/controllers/projects_controller.rb": {
+        "lines": [
+          null,
+          0,
+          0,
+          0
+        ],
+        "branches": {}
+      },
+      "/Users/stuart_pethurst/ohana_site/app/controllers/site_visits_controller.rb": {
+        "lines": [
+          null,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {}
+      },
+      "/Users/stuart_pethurst/ohana_site/app/helpers/application_helper.rb": {
+        "lines": [
+          0,
+          0
+        ],
+        "branches": {}
+      },
+      "/Users/stuart_pethurst/ohana_site/app/helpers/coming_soon_helper.rb": {
+        "lines": [
+          null,
+          0,
+          0
+        ],
+        "branches": {}
+      },
+      "/Users/stuart_pethurst/ohana_site/app/helpers/contacts_helper.rb": {
+        "lines": [
+          0,
+          0
+        ],
+        "branches": {}
+      },
+      "/Users/stuart_pethurst/ohana_site/app/helpers/pages_helper.rb": {
+        "lines": [
+          0,
+          0
+        ],
+        "branches": {}
+      },
+      "/Users/stuart_pethurst/ohana_site/app/helpers/projects_helper.rb": {
+        "lines": [
+          null,
+          0,
+          0
+        ],
+        "branches": {}
+      },
+      "/Users/stuart_pethurst/ohana_site/app/helpers/site_visits_helper.rb": {
+        "lines": [
+          null,
+          0,
+          0
+        ],
+        "branches": {}
+      },
       "/Users/stuart_pethurst/ohana_site/app/jobs/application_job.rb": {
         "lines": [
           0,
@@ -252,8 +186,67 @@
           0
         ],
         "branches": {}
+      },
+      "/Users/stuart_pethurst/ohana_site/app/mailers/application_mailer.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {}
+      },
+      "/Users/stuart_pethurst/ohana_site/app/mailers/contact_mailer.rb": {
+        "lines": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {}
+      },
+      "/Users/stuart_pethurst/ohana_site/app/mailers/site_stats_mailer.rb": {
+        "lines": [
+          0,
+          0
+        ],
+        "branches": {}
+      },
+      "/Users/stuart_pethurst/ohana_site/app/models/application_record.rb": {
+        "lines": [
+          0,
+          0,
+          0
+        ],
+        "branches": {}
+      },
+      "/Users/stuart_pethurst/ohana_site/app/models/contact.rb": {
+        "lines": [
+          null,
+          0,
+          0,
+          null,
+          0,
+          null,
+          0,
+          0,
+          0
+        ],
+        "branches": {}
+      },
+      "/Users/stuart_pethurst/ohana_site/app/models/site_visit.rb": {
+        "lines": [
+          0,
+          0
+        ],
+        "branches": {}
       }
     },
-    "timestamp": 1749365216
+    "timestamp": 1749367896
   }
 }

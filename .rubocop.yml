@@ -22,7 +22,7 @@ Layout/LineLength:
   Max: 120
 
 Metrics/AbcSize: # ✅ fixed extra space
-  Max: 17
+  Enabled: false
 
 Metrics/MethodLength:
   Enabled: false

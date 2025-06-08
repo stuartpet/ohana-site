@@ -31,4 +31,6 @@ en:
   contacts:
     notice: "Thank you for your message. We will be in touch soon."
     failure: "There was a problem with your submission."
+  site_visits:
+    subject: "Monthly Ohana Site Visit Summary"
 

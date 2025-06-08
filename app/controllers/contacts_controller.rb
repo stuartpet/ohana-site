@@ -11,7 +11,7 @@ class ContactsController < ApplicationController
 
     if @contact.valid?
       ContactMailer.contact_email(@contact).deliver_now
-      flash.now[:notice] = t('contacts.notice')
+      flash.now[:notice] = I18n.t('contacts.notice')
       redirect_to root_path(anchor: 'contact')
     else
       render_error
@@ -19,7 +19,7 @@ class ContactsController < ApplicationController
   end
 
   def render_error
-    flash.now[:alert] = t('contacts.failure')
+    flash.now[:alert] = I18n.t('contacts.failure')
     render :new, status: :unprocessable_content
   end
 
