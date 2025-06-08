@@ -1,42 +1,14 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title><%= content_for?(:title) ? yield(:title) : "Ohana Consulting" %></title>
-  <%= csrf_meta_tags %>
-  <%= csp_meta_tag %>
-
-  <%= favicon_link_tag 'favicon.png', type: 'image/png' %>
-  <%= stylesheet_link_tag "application", media: "all", "data-turbo-track": "reload" %>
-  <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
-</head>
-
-<body>
-<!-- Sticky Navbar -->
-<header class="navbar">
-  <nav class="nav-container">
-    <div class="logo">
-      <%= image_tag "ohana_logo.png", alt: "Ohana Consulting" %>
-    </div>
-    <div class="navbar-links">
-      <%= link_to "Home", root_path(anchor: "home") %>
-      <%= link_to "About", root_path(anchor: "about") %>
-      <%= link_to "Services", root_path(anchor: "services") %>
-      <%= link_to "Projects", root_path(anchor: "projects") %>
-      <%= link_to "Contact", contacts_path %>
-    </div>
-    <div class="navbar-right">
-      <%= link_to " ", "https://www.linkedin.com/in/kate-mullins-4209719/", target: "_blank", rel: "noopener", class: "linkedin-icon" %>
-    </div>
-  </nav>
-</header>
-
 <!-- Hero Video -->
 <section class="contact-hero">
-  <video autoplay muted loop playsinline class="hero-video">
+  <video
+    autoplay
+    muted
+    loop
+    playsinline
+    class="hero-video"
+    data-controller="video"
+    data-action="turbo:frame-load->video#reload turbo:load->video#reload"
+  >
     <source src="<%= asset_path('contact.mp4') %>" type="video/mp4">
     Your browser does not support the video tag.
   </video>
