@@ -22,13 +22,12 @@ body.menu-open {
   top: 0;
   left: 0;
   right: 0;
-  height: 70px;
+  height: 150px;
   z-index: 999;
   background: $light-grey;
   padding: 0.5rem 0;
   display: flex;
   align-items: center;
-  border-bottom: 1px solid #ddd;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 
   .nav-container {
@@ -48,7 +47,7 @@ body.menu-open {
     padding-bottom: 0.4rem;
 
     img {
-      max-width: 300px;
+      max-width: 350px;
       height: auto;
       display: block;
       object-fit: contain;
@@ -67,19 +66,6 @@ body.menu-open {
     }
   }
 
-  .navbar-links a {
-    margin-left: 2rem;
-    text-decoration: none;
-    letter-spacing: 0.5px;
-    color: $navy;
-    font-weight: bold;
-    font-size: 1.2rem;
-
-    &:hover {
-      text-decoration: underline;
-    }
-  }
-
   // Fade-in overlay for mobile menu
   .mobile-menu-overlay {
     display: none;
@@ -94,7 +80,7 @@ body.menu-open {
       left: 0;
       height: 100vh;
       width: 100vw;
-      background: rgba(0,0,0,0.3);
+      background: rgba(0, 0, 0, 0.3);
       z-index: 998;
     }
   }
@@ -125,12 +111,16 @@ body.menu-open {
     }
 
     a {
-      color: $navy;
+      color: $green;
       font-weight: bold;
-      font-size: 1.2rem;
+      font-size: 1.4rem;
+      letter-spacing: 0.5px;
+      margin-left: 2rem;
+      text-decoration: none;
 
       &:hover {
-        color: $green;
+        color: $navy;
+        text-decoration: underline;
       }
 
       &.unpack {
@@ -145,67 +135,14 @@ body.menu-open {
         transition: transform 0.2s ease, opacity 0.2s ease;
       }
     }
-
-    // MOBILE ONLY
-    @media (max-width: 768px) {
-      display: none;
-      flex-direction: column;
-      background-color: $light-grey;
-      position: absolute;
-      top: 60px;
-      right: 0;
-      width: 100%;
-      padding: 1rem 2rem;
-      text-align: right;
-      transform: scaleY(0);
-      transform-origin: top;
-      opacity: 0;
-      transition: transform 0.4s ease, opacity 0.4s ease;
-      z-index: 999;
-
-      &.open {
-        display: flex;
-        transform: scaleY(1);
-        opacity: 1;
-      }
-
-      a {
-        opacity: 0;
-        transform: translateY(-20px);
-
-        &.unpack {
-          opacity: 1;
-          transform: translateY(0);
-          transition: transform 0.3s ease, opacity 0.3s ease;
-        }
-
-        &.pack {
-          opacity: 0;
-          transform: translateY(-20px);
-          transition: transform 0.2s ease, opacity 0.2s ease;
-        }
-      }
-    }
-  }
-
-  // Link animation
-  @keyframes fadeInLink {
-    from {
-      opacity: 0;
-      transform: translateY(-10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
   }
 
   .linkedin-icon {
     background-image: url('linkedin_icon.png');
     background-repeat: no-repeat;
     background-size: contain;
-    width: 24px;
-    height: 24px;
+    width: 45px;
+    height: 45px;
     display: inline-block;
     margin-right: 2rem;
   }
@@ -597,21 +534,23 @@ body.menu-open {
 
 .homepage-section {
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
   gap: 2rem;
+  max-width: 1200px;
   margin: 0 auto 4rem;
   padding: 2rem;
 
-  &.reverse {
-    flex-direction: row-reverse;
-  }
-
   @media (max-width: 768px) {
     flex-direction: column;
+  }
 
-    &.reverse {
-      flex-direction: column; // ensures reverse is ignored on mobile
+  &.reverse {
+    flex-direction: row-reverse;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
     }
   }
 }
@@ -1011,25 +950,31 @@ body.menu-open {
   @media (max-width: 768px) {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 25px;
     cursor: pointer;
-    z-index: 1001;
 
     span {
-      width: 25px;
       height: 3px;
       background: $navy;
-      margin: 4px 0;
+      border-radius: 2px;
       transition: all 0.3s ease;
     }
 
-    &.open {
-      span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
-      span:nth-child(2) { opacity: 0; }
-      span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
+    &.open span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    &.open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    &.open span:nth-child(3) {
+      transform: rotate(-45deg) translate(6px, -6px);
     }
   }
 }
-
 
 
 
