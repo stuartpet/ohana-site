@@ -81,21 +81,19 @@ body.menu-open {
   }
 
   // Fade-in overlay for mobile menu
-  .mobile-overlay {
+  .mobile-menu-overlay {
     display: none;
     position: fixed;
-    top: 60px; // height of navbar
+    top: 60px;
     left: 0;
     width: 100%;
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.25);
+    height: calc(100% - 60px);
+    background: rgba(0, 0, 0, 0.3);
     z-index: 998;
-    opacity: 0;
-    transition: opacity 0.4s ease;
 
-    &.visible {
+    &.open {
       display: block;
-      opacity: 1;
+      animation: fadeIn 0.3s ease;
     }
   }
 
@@ -994,17 +992,14 @@ body.menu-open {
 .burger-menu {
   display: none;
   flex-direction: column;
-  justify-content: space-around;
-  width: 25px;
-  height: 25px;
   cursor: pointer;
   z-index: 1001;
 
   span {
+    width: 25px;
     height: 3px;
-    background: #fff;
-    border-radius: 2px;
-    margin: 3px 0;
+    background: $navy;
+    margin: 4px 0;
     transition: all 0.3s ease;
   }
 
@@ -1030,18 +1025,20 @@ body.menu-open {
   gap: 1.5rem;
 
   @media (max-width: 768px) {
-    display: none;
     flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    padding: 5rem 2rem;
-    background-color: $navy;
-    z-index: 998;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background: $light-grey;
+    width: 100%;
+    padding: 1.5rem;
+    text-align: right;
+    transform: scaleY(0);
+    transform-origin: top;
+    opacity: 0;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+    z-index: 999;
+    display: none;
 
     a {
       font-size: 2rem;
@@ -1057,6 +1054,8 @@ body.menu-open {
 
   &.open {
     display: flex;
+    transform: scaleY(1);
+    opacity: 1;
   }
 }
 

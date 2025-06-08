@@ -1,19 +1,19 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-    static targets = ["links", "button"]
+    static targets = ["menu", "button"]
 
     toggle() {
-        this.linksTarget.classList.toggle("open")
+        this.menuTarget.classList.toggle("open")
         this.buttonTarget.classList.toggle("open")
         document.body.classList.toggle("menu-open")
 
         const isMobile = window.innerWidth <= 768
-        const links = this.linksTarget.querySelectorAll("a")
+        const links = this.menuTarget.querySelectorAll("a")
 
         if (!isMobile) return // Exit early on desktop — no unpack/pack logic
 
-        if (this.linksTarget.classList.contains("open")) {
+        if (this.menuTarget.classList.contains("open")) {
             links.forEach((link, i) => {
                 setTimeout(() => {
                     link.classList.remove("pack")

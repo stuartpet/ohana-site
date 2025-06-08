@@ -22,14 +22,15 @@
       <%= image_tag "ohana_logo.png", alt: "Ohana Consulting" %>
     </div>
     <!-- Burger button -->
-    <div class="burger-menu" data-action="click->menu#toggle" data-menu-target="button">
-      <div class="mobile-overlay" data-menu-target="overlay"></div>
+    <div class="burger" data-action="click->menu#toggle" data-menu-target="button">
+      <div class="mobile-menu-overlay" data-menu-target="overlay">
       <span></span>
       <span></span>
       <span></span>
+      </div>
     </div>
 
-    <div class="navbar-links" data-menu-target="links">
+    <div class="navbar-links" data-menu-target="menu">
       <%= link_to "Home", root_path(anchor: "home") %>
       <%= link_to "About", root_path(anchor: "about") %>
       <%= link_to "Services", root_path(anchor: "services") %>
