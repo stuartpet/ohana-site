@@ -21,7 +21,14 @@
     <div class="logo">
       <%= image_tag "ohana_logo.png", alt: "Ohana Consulting" %>
     </div>
-    <div class="navbar-links">
+    <!-- Burger button -->
+    <div class="burger-menu" data-action="click->menu#toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <div class="navbar-links" data-menu-target="links">
       <%= link_to "Home", root_path(anchor: "home") %>
       <%= link_to "About", root_path(anchor: "about") %>
       <%= link_to "Services", root_path(anchor: "services") %>
