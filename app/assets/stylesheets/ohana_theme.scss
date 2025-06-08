@@ -69,54 +69,32 @@ body.menu-open {
   // Fade-in overlay for mobile menu
   .mobile-menu-overlay {
     display: none;
+    position: fixed;
+    top: 0; left: 0;
+    height: 100vh;
+    width: 100vw;
+    background: rgba(0,0,0,0.3);
+    z-index: 998;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+    backdrop-filter: blur(2px);
 
     &.open {
       display: block;
     }
-
-    @media (max-width: 768px) {
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 100vh;
-      width: 100vw;
-      background: rgba(0, 0, 0, 0.3);
-      z-index: 998;
-    }
   }
 
   .navbar-links {
-    display: flex;
-
-    @media (max-width: 768px) {
-      display: none;
-      flex-direction: column;
-      position: absolute;
-      top: 60px;
-      right: 0;
-      width: 100%;
-      background: $light-grey;
-      padding: 1rem 2rem;
-      transform: scaleY(0);
-      opacity: 0;
-      transform-origin: top;
-      transition: transform 0.4s, opacity 0.4s;
-      z-index: 999;
-
-      &.open {
-        display: flex;
-        transform: scaleY(1);
-        opacity: 1;
-      }
-    }
+    display: flex; gap: 1.5rem;
 
     a {
       color: $green;
+      width: 100%;
       font-weight: bold;
       font-size: 1.4rem;
       letter-spacing: 0.5px;
-      margin-left: 2rem;
+      margin: 0.75rem 0;
       text-decoration: none;
+      transform: translateY(-20px);
 
       &:hover {
         color: $navy;
@@ -126,16 +104,15 @@ body.menu-open {
       &.unpack {
         opacity: 1;
         transform: translateY(0);
-        transition: transform 0.3s ease, opacity 0.3s ease;
+        transition: opacity 0.3s ease, transform 0.3s ease;
       }
-
       &.pack {
         opacity: 0;
         transform: translateY(-20px);
-        transition: transform 0.2s ease, opacity 0.2s ease;
+        transition: opacity 0.2s ease, transform 0.2s ease;
       }
-    }
-  }
+   }
+ }
 
   .linkedin-icon {
     background-image: url('linkedin_icon.png');
@@ -944,26 +921,80 @@ body.menu-open {
   border-left: 4px solid #a94442;
 }
 
+@media (max-width: 768px) {
+  .navbar {
+    .navbar-links {
+      display: none;
+      flex-direction: column;
+      background-color: rgba($navy, 0.95);
+      position: absolute;
+      top: 60px;
+      right: 0;
+      width: 100%;
+      padding: 2rem 1.5rem;
+      z-index: 999;
+      transform-origin: top;
+      transform: scaleY(0);
+      opacity: 0;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+
+      a {
+        color: $white;
+        width: 100%;
+        font-weight: bold;
+        font-size: 1.6rem;
+        letter-spacing: 0.5px;
+        margin-left: 3rem;
+        text-decoration: none;
+      }
+
+      &.open {
+        display: flex;
+        transform: scaleY(1);
+        opacity: 1;
+      }
+    }
+  }
+}
+
 .burger-menu {
   display: none;
 
   @media (max-width: 768px) {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
     width: 30px;
-    height: 25px;
+    height: 30px;
     cursor: pointer;
+    position: relative;
+    z-index: 1001;
 
     span {
+      position: absolute;
+      width: 24px;
       height: 3px;
       background: $navy;
       border-radius: 2px;
       transition: all 0.3s ease;
     }
 
+    span:nth-child(1) {
+      top: 6px;
+    }
+
+    span:nth-child(2) {
+      top: 13px;
+    }
+
+    span:nth-child(3) {
+      top: 20px;
+    }
+
     &.open span:nth-child(1) {
-      transform: rotate(45deg) translate(5px, 5px);
+      transform: rotate(45deg);
+      top: 13px;
     }
 
     &.open span:nth-child(2) {
@@ -971,10 +1002,27 @@ body.menu-open {
     }
 
     &.open span:nth-child(3) {
-      transform: rotate(-45deg) translate(6px, -6px);
+      transform: rotate(-45deg);
+      top: 13px;
     }
   }
 }
+
+// Ensure "reverse" layout stacks correctly
+@media (max-width: 768px) {
+  .homepage-section {
+    flex-direction: column;
+
+    .homepage-text {
+      order: 1;
+    }
+
+    .homepage-image {
+      order: 2;
+    }
+  }
+}
+
 
 
 
