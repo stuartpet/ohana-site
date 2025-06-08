@@ -25,9 +25,7 @@
 
     <!-- Burger button -->
     <div class="burger-menu" data-action="click->menu#toggle" data-menu-target="button">
-      <span></span>
-      <span></span>
-      <span></span>
+      <span></span><span></span><span></span>
     </div>
 
     <!-- Navbar links -->
@@ -39,12 +37,11 @@
       <%= link_to "Contact", contacts_path %>
     </div>
 
+    <div class="mobile-menu-overlay" data-menu-target="overlay"></div>
+
     <div class="navbar-right">
       <%= link_to " ", "https://www.linkedin.com/in/kate-mullins-4209719/", target: "_blank", rel: "noopener", class: "linkedin-icon" %>
     </div>
-
-    <!-- Mobile overlay -->
-    <div class="mobile-menu-overlay" data-menu-target="overlay"></div>
   </nav>
 </header>
 
