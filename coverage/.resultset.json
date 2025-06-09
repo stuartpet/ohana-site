@@ -56,6 +56,8 @@
           null,
           null,
           null,
+          null,
+          null,
           null
         ],
         "branches": {}
@@ -113,16 +115,16 @@
         ],
         "branches": {}
       },
-      "/Users/stuart_pethurst/ohana_site/app/models/application_record.rb": {
+      "/Users/stuart_pethurst/ohana_site/app/models/site_visit.rb": {
         "lines": [
-          1,
           1,
           null
         ],
         "branches": {}
       },
-      "/Users/stuart_pethurst/ohana_site/app/models/site_visit.rb": {
+      "/Users/stuart_pethurst/ohana_site/app/models/application_record.rb": {
         "lines": [
+          1,
           1,
           null
         ],
@@ -284,6 +286,6 @@
         "branches": {}
       }
     },
-    "timestamp": 1749425364
+    "timestamp": 1749463413
   }
 }

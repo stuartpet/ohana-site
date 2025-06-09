@@ -149,7 +149,6 @@ Style/Documentation:
     - 'app/models/application_record.rb'
     - 'config/application.rb'
     - 'config/initializers/rack_attack.rb'
-    - 'db/migrate/20250528141046_create_contacts.rb'
 
 # Offense count: 2
 # This cop supports safe autocorrection (--autocorrect).

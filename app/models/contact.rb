@@ -1,5 +1,5 @@
 # app/models/contact.rb
-class Contact < ApplicationRecord
+class Contact
   include ActiveModel::Model
 
   attr_accessor :name, :email, :message, :subject

@@ -13,7 +13,7 @@
       <img src="./assets/0.13.1/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2025-06-09T00:29:24+01:00">2025-06-09T00:29:24+01:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2025-06-09T11:03:33+01:00">2025-06-09T11:03:33+01:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -327,7 +327,7 @@
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#a282816c80cc6992e63eab27308ad5eeb21c5a97" class="src_link" title="app/mailers/contact_mailer.rb">app/mailers/contact_mailer.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
-            <td class="cell--number">9</td>
+            <td class="cell--number">11</td>
             <td class="cell--number">4</td>
             <td class="cell--number">4</td>
             <td class="cell--number">0</td>
@@ -876,7 +876,7 @@
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#a282816c80cc6992e63eab27308ad5eeb21c5a97" class="src_link" title="app/mailers/contact_mailer.rb">app/mailers/contact_mailer.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
-            <td class="cell--number">9</td>
+            <td class="cell--number">11</td>
             <td class="cell--number">4</td>
             <td class="cell--number">4</td>
             <td class="cell--number">0</td>
@@ -2057,7 +2057,7 @@
               
             
 
-            <code class="ruby">      flash.now[:notice] = I18n.t(&#39;contacts.notice&#39;)</code>
+            <code class="ruby">      flash[:notice] = I18n.t(&#39;contacts.notice&#39;)</code>
           </li>
         </div>
       
@@ -3589,7 +3589,7 @@
               
             
 
-            <code class="ruby">      to: ENV.fetch(&quot;CONTACT_EMAIL&quot;, &quot;example@example.com&quot;),</code>
+            <code class="ruby">      to: ENV.fetch(&quot;CONTACT_EMAIL&quot;, &quot;kate@ohana-consulting.co.uk&quot;),</code>
           </li>
         </div>
       
@@ -3601,7 +3601,7 @@
               
             
 
-            <code class="ruby">      subject: @contact.subject.presence || &quot;New contact from #{@contact.name}&quot;</code>
+            <code class="ruby">      from: ENV.fetch(&quot;SMTP_FROM&quot;, &quot;kate@ohana-consulting.co.uk&quot;),</code>
           </li>
         </div>
       
@@ -3613,7 +3613,7 @@
               
             
 
-            <code class="ruby">    )</code>
+            <code class="ruby">      reply_to: @contact.email,</code>
           </li>
         </div>
       
@@ -3625,12 +3625,36 @@
               
             
 
-            <code class="ruby">  end</code>
+            <code class="ruby">      subject: @contact.subject.presence || &quot;New contact from #{@contact.name}&quot;</code>
           </li>
         </div>
       
         <div>
           <li class="never" data-hits="" data-linenumber="9">
+            
+
+            
+              
+            
+
+            <code class="ruby">    )</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="10">
+            
+
+            
+              
+            
+
+            <code class="ruby">  end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="11">
             
 
             
@@ -4144,7 +4168,7 @@
               
             
 
-            <code class="ruby">class Contact &lt; ApplicationRecord</code>
+            <code class="ruby">class Contact</code>
           </li>
         </div>
       
@@ -4210,7 +4234,7 @@
               
             
 
-            <code class="ruby">  validates :name, :email, :message, :subject, presence: true</code>
+            <code class="ruby">  validates :name, :email, :message, presence: true</code>
           </li>
         </div>
       

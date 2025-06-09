@@ -7,11 +7,11 @@ class ContactsController < ApplicationController
     # Spam bot honeypot
     spam_filter
 
-    @contact = Struct.new(contact_params)
+    @contact = Contact.new(contact_params)
 
-    if contact_valid?(@contact)
+    if @contact.valid?
       ContactMailer.contact_email(@contact).deliver_now
-      flash[:notice] = I18n.t('contacts.notice') # "Thanks for your message" etc.
+      flash[:notice] = I18n.t('contacts.notice')
       redirect_to root_path(anchor: 'contact')
     else
       render_error
@@ -30,10 +30,6 @@ class ContactsController < ApplicationController
   end
 
   private
-
-  def contact_valid?(contact)
-    contact.name.present? && contact.email.present? && contact.message.present?
-  end
 
   def contact_params
     params.require(:contact).permit(:name, :email, :subject, :message)
