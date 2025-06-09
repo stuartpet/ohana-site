@@ -30,7 +30,7 @@ RSpec.describe 'Contacts', type: :request do
       expect do
         post contacts_path, params: { contact: valid_params }
       end.to change { ActionMailer::Base.deliveries.count }.by(1)
-      
+
       expect(flash[:notice]).to eq("Thank you for your message. We will be in touch soon.")
     end
 
