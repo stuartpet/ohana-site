@@ -13,7 +13,7 @@ RSpec.describe ContactMailer, type: :mailer do
     end
 
     it 'sends to the configured email' do
-      expect(mail.to).to eq([ENV.fetch('CONTACT_EMAIL', 'example@example.com')])
+      expect(mail.to).to eq([ENV.fetch('CONTACT_EMAIL', 'kate@ohana-consulting.co.uk')])
     end
 
     it 'includes the name and message in the body' do
