@@ -12,7 +12,8 @@ class ContactsController < ApplicationController
     if @contact.valid?
       ContactMailer.contact_email(@contact).deliver_now
       flash[:notice] = I18n.t('contacts.notice')
-      redirect_to root_path(anchor: 'contact')
+      @contact = Contact.new
+      render :new, status: :ok
     else
       render_error
     end

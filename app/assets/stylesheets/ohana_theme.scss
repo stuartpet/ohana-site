@@ -235,6 +235,12 @@ body.menu-open {
         border: 1px solid #ccc;
         border-radius: 4px;
       }
+
+      .form-control:focus {
+        outline: none;
+        border-color: $green;
+        box-shadow: 0 0 0 3px rgba(107, 142, 35, 0.2); // subtle green glow
+      }
     }
 
     .contact-form {
@@ -287,6 +293,12 @@ body.menu-open {
   align-items: flex-start;
   max-width: 1000px;
   margin: 0 auto;
+
+  .contact-side-spacer {
+    flex: 1;
+    visibility: hidden;
+    height: 1px;
+  }
 
   @media (max-width: 768px) {
     flex-direction: column;
