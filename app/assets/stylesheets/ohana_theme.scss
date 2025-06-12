@@ -1374,31 +1374,6 @@ body.menu-open {
   opacity: 1;
 }
 
-.scroll-dots {
-  position: absolute;
-  bottom: 2rem; // 🟢 Adjust this as needed
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 0.5rem;
-  z-index: 1;
-  transition: bottom 0.3s ease;
-
-  button {
-    width: 10px;
-    height: 10px;
-    background: #ccc;
-    border-radius: 50%;
-    border: none;
-    opacity: 0.5;
-    transition: 0.3s;
-
-    &.active {
-      background: #1D3557;
-      opacity: 1;
-    }
-  }
-}
 
 
 

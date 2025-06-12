@@ -15,38 +15,38 @@
   <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 
-<body data-controller="fade menu">
-<header class="navbar">
-  <div class="nav-container">
-    <!-- Logo -->
-    <div class="logo">
-      <%= image_tag "ohana_logo.png", alt: "Ohana Consulting" %>
+<body data-controller="scroll-indicator fade menu">
+  <header class="navbar">
+    <div class="nav-container">
+      <!-- Logo -->
+      <div class="logo">
+        <%= image_tag "ohana_logo.png", alt: "Ohana Consulting" %>
+      </div>
+
+      <!-- Burger menu (mobile only) -->
+      <div class="burger-menu" data-action="click->menu#toggle" data-menu-target="button">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+
+      <!-- Sidebar nav links -->
+      <nav class="navbar-links desktop-only" data-controller="scroll-cards" data-menu-target="menu">
+        <%= link_to "Home", root_path(anchor: "top") %>
+        <%= link_to "Our Story", root_path(anchor: "about") %>
+        <%= link_to "What We Do", root_path(anchor: "services") %>
+        <%= link_to "Past Work", root_path(anchor: "projects") %>
+        <%= link_to "Get in Touch", root_path(anchor: "contact") %>
+      </nav>
+
+      <!-- Mobile overlay -->
+      <div class="mobile-menu-overlay" data-menu-target="overlay" data-action="click->menu#toggle"></div>
+
+      <!-- LinkedIn Icon -->
+      <div class="navbar-right">
+        <%= link_to " ", "https://www.linkedin.com/in/kate-mullins-4209719/", target: "_blank", rel: "noopener", class: "linkedin-icon" %>
+      </div>
     </div>
-
-    <!-- Burger menu (mobile only) -->
-    <div class="burger-menu" data-action="click->menu#toggle" data-menu-target="button">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-
-    <!-- Sidebar nav links -->
-    <nav class="navbar-links desktop-only" data-controller="scroll-cards" data-menu-target="menu">
-      <%= link_to "Home", root_path(anchor: "top") %>
-      <%= link_to "Our Story", root_path(anchor: "about") %>
-      <%= link_to "What We Do", root_path(anchor: "services") %>
-      <%= link_to "Past Work", root_path(anchor: "projects") %>
-      <%= link_to "Get in Touch", contacts_path %>
-    </nav>
-
-    <!-- Mobile overlay -->
-    <div class="mobile-menu-overlay" data-menu-target="overlay" data-action="click->menu#toggle"></div>
-
-    <!-- LinkedIn Icon -->
-    <div class="navbar-right">
-      <%= link_to " ", "https://www.linkedin.com/in/kate-mullins-4209719/", target: "_blank", rel: "noopener", class: "linkedin-icon" %>
-    </div>
-  </div>
 </header>
 
 <%= yield %>
