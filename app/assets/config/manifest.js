@@ -18,3 +18,4 @@
 //= link cost-pressure.jpg
 //= link change.jpg
 //= link service-summary.jpg
+//= link welcome.jpg

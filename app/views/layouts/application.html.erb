@@ -7,7 +7,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <%= favicon_link_tag 'favicon.png', type: 'image/png' %>
-
   <%= stylesheet_link_tag "application", media: "all", "data-turbo-track": "reload" %>
   <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
 
@@ -16,40 +15,41 @@
   <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body data-controller="fade menu">
 <header class="navbar">
-  <nav class="nav-container" data-controller="menu">
+  <div class="nav-container">
+    <!-- Logo -->
     <div class="logo">
       <%= image_tag "ohana_logo.png", alt: "Ohana Consulting" %>
     </div>
 
-    <!-- Burger button -->
+    <!-- Burger menu (mobile only) -->
     <div class="burger-menu" data-action="click->menu#toggle" data-menu-target="button">
       <span></span>
       <span></span>
       <span></span>
     </div>
 
-    <!-- Navbar links -->
-    <div class="navbar-links" data-menu-target="menu">
-      <%= link_to "Home", root_path(anchor: "home") %>
-      <%= link_to "About", root_path(anchor: "about") %>
-      <%= link_to "Services", root_path(anchor: "services") %>
-      <%= link_to "Projects", root_path(anchor: "projects") %>
-      <%= link_to "Contact", contacts_path %>
-    </div>
+    <!-- Sidebar nav links -->
+    <nav class="navbar-links desktop-only" data-controller="scroll-cards" data-menu-target="menu">
+      <%= link_to "Home", root_path(anchor: "top") %>
+      <%= link_to "Our Story", root_path(anchor: "about") %>
+      <%= link_to "What We Do", root_path(anchor: "services") %>
+      <%= link_to "Past Work", root_path(anchor: "projects") %>
+      <%= link_to "Get in Touch", contacts_path %>
+    </nav>
 
+    <!-- Mobile overlay -->
     <div class="mobile-menu-overlay" data-menu-target="overlay" data-action="click->menu#toggle"></div>
 
+    <!-- LinkedIn Icon -->
     <div class="navbar-right">
       <%= link_to " ", "https://www.linkedin.com/in/kate-mullins-4209719/", target: "_blank", rel: "noopener", class: "linkedin-icon" %>
     </div>
-  </nav>
+  </div>
 </header>
 
-<main>
-  <%= yield %>
-</main>
+<%= yield %>
 
 <footer class="footer">
   <p>&copy; <%= Time.current.year %> Ohana Consulting. All rights reserved.</p>
@@ -57,6 +57,7 @@
   <%= link_to "Privacy Statement", privacy_path, class: "footer-link" %>
 </footer>
 
+<!-- Cookie Banner -->
 <div id="cookie-banner" data-controller="cookie-banner" class="cookie-banner">
   <div class="cookie-content">
     <p>We use cookies to understand where our visitors come from. No personal data is collected.</p>
@@ -66,7 +67,5 @@
     </div>
   </div>
 </div>
-
-<a href="#" class="scroll-to-top" data-action="click->scroll#toTop">↑</a>
 </body>
 </html>
