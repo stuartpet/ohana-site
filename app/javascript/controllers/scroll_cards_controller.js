@@ -28,7 +28,7 @@ export default class extends Controller {
 
         if (target && target.closest(".horizontal-scroll")) {
             event.preventDefault()
-            target.scrollIntoView({ behavior: "smooth", inline: "start" })
+            target.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "start" })
         }
     }
 }
