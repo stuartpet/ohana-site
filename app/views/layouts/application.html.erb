@@ -31,12 +31,12 @@
       </div>
 
       <!-- Sidebar nav links -->
-      <nav class="navbar-links desktop-only" data-controller="scroll-cards" data-menu-target="menu">
-        <%= link_to "Home", root_path(anchor: "top") %>
-        <%= link_to "Our Story", root_path(anchor: "about") %>
-        <%= link_to "What We Do", root_path(anchor: "services") %>
-        <%= link_to "Past Work", root_path(anchor: "projects") %>
-        <%= link_to "Get in Touch", root_path(anchor: "contact") %>
+      <nav class="navbar-links" data-controller="scroll-cards" data-menu-target="menu">
+        <a href="#top" data-action="click->menu#close">Home</a>
+        <a href="#about" data-action="click->menu#close">Our Story</a>
+        <a href="#services" data-action="click->menu#close">What We Do</a>
+        <a href="#projects" data-action="click->menu#close">Past Work</a>
+        <a href="#contact" data-action="click->menu#close">Get in Touch</a>
       </nav>
 
       <!-- Mobile overlay -->
