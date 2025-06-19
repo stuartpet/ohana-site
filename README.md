@@ -48,7 +48,7 @@ Lint with RuboCop:
 bundle exec rubocop
 
 📦 Deployment
-Deployed with Netlify, with CI checks via CircleCI on every push.
+Deployed with Netlify, with CI checks via CircleCI on every push. (this site will be deployed to production @ ohana-consulting.co.uk soon) 
 
 👤 Author
 Built by Stuart Pethurst
