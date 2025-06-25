@@ -29,6 +29,14 @@ export default class extends Controller {
         if (target) {
             event.preventDefault()
             target.scrollIntoView({ behavior: "smooth", block: "start", inline: "start" })
+            const offset = 100 // adjust this to match your navbar height
+            const elementTop = target.getBoundingClientRect().top + window.scrollY
+            const offsetTop = elementTop - offset
+
+            window.scrollTo({
+                top: offsetTop,
+                behavior: "smooth"
+            })
 
             // Also close the menu if we're on mobile
             const overlay = document.querySelector(".mobile-menu-overlay")

@@ -1,7 +1,7 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-    static targets = ["menu", "button", "overlay"]
+    static targets = ["button", "menu", "overlay"]
 
     connect() {
         // auto-close when clicking overlay or link
@@ -12,8 +12,9 @@ export default class extends Controller {
     }
 
     toggle() {
-        this.menuTarget.classList.toggle("open")
         this.buttonTarget.classList.toggle("open")
+        this.menuTarget.classList.toggle("open")
+        this.element.classList.toggle("open")
         this.overlayTarget.classList.toggle("open")
         document.body.classList.toggle("menu-open")
     }

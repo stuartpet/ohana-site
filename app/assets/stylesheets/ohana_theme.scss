@@ -10,6 +10,8 @@ body {
   padding-top: 0; // Remove the space causing the gap
   background-color: $white;
   color: #333;
+  scroll-snap-type: y proximity;
+  scroll-padding-top: 96rem
 }
 
 @media (max-width: 768px) {
@@ -61,32 +63,23 @@ body.menu-open {
     }
   }
 
-  @media (max-width: 768px) {
-    height: 60px;
+  .navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
 
-    .logo img {
-      max-width: 150px;
+    .burger-menu {
+      display: none;
     }
 
-    .navbar-right {
-      margin-right: 0.5rem
-    }
-  }
-
-  // Fade-in overlay for mobile menu
-  .mobile-menu-overlay {
-    display: none;
-    position: fixed;
-    top: 0; left: 0;
-    height: 100vh;
-    width: 100vw;
-    background: rgba(0, 0, 0, 0.15); // less dark
-    z-index: 998;
-    transition: transform 0.4s ease, opacity 0.4s ease;
-    backdrop-filter: none; // remove blur
-
-    &.open {
-      display: block;
+    .linkedin-icon {
+      background-image: url('linkedin_icon.png');
+      background-repeat: no-repeat;
+      background-size: contain;
+      width: 45px;
+      height: 45px;
+      display: inline-block;
+      margin-left: 1rem;
     }
   }
 
@@ -123,48 +116,113 @@ body.menu-open {
         transition: opacity 0.2s ease, transform 0.2s ease;
       }
     }
-  }
 
-  @media (max-width: 768px) {
+    .mobile-menu-overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      height: 100vh;
+      width: 100vw;
+      background: rgba(0, 0, 0, 0.15); // less dark
+      z-index: 998;
+      transition: transform 0.4s ease, opacity 0.4s ease;
+      backdrop-filter: none; // remove blur
+
+      &.open {
+        display: block;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    height: 60px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+
+    .nav-container {
+      max-width: 100%;
+      overflow: hidden;
+    }
+
+    .logo img {
+      max-width: 150px;
+    }
+
+    .navbar-right {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+
+      .burger-menu {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-end;
+        cursor: pointer;
+        padding: 1rem;
+        margin-left: auto;
+        margin-right: 1rem;
+
+        span {
+          height: 3px;
+          width: 25px;
+          background: $navy;
+          margin: 4px 0;
+          border-radius: 2px;
+          transition: all 0.3s ease;
+        }
+
+        &.open span:nth-child(1) {
+          transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        &.open span:nth-child(2) {
+          opacity: 0;
+        }
+
+        &.open span:nth-child(3) {
+          transform: rotate(-45deg) translate(6px, -6px);
+        }
+      }
+
+      .linkedin-icon {
+        background-image: url('linkedin_icon.png');
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 40px;
+        height: 40px;
+        display: inline-block;
+      }
+    }
+
     .navbar-links {
       display: none;
       flex-direction: column;
-      background-color: rgba($navy, 0.95);
-      position: absolute;
+      align-items: flex-start;
+      position: fixed;
       top: 60px;
-      right: 0;
-      width: 100%;
+      left: 0;
+      width: 80%;
+      height: 100vh;
+      background-color: $navy;
       padding: 2rem 1.5rem;
       z-index: 10;
-      transform-origin: top;
-      transform: scaleY(0);
-      opacity: 0;
-      transition: transform 0.3s ease, opacity 0.3s ease;
+      transform: translateX(-100%);
+      transition: transform 0.3s ease;
 
       &.open {
         display: flex;
-        transform: scaleY(1);
-        opacity: 1;
+        transform: translateX(0);
       }
 
       a {
         color: $white;
-        font-weight: bold;
-        font-size: 1.5rem;
-        margin-left: 3rem;
+        font-weight: normal;
+        font-size: 1.3rem;
+        padding: 1rem 0;
       }
     }
-  }
-
-
-  .linkedin-icon {
-    background-image: url('linkedin_icon.png');
-    background-repeat: no-repeat;
-    background-size: contain;
-    width: 45px;
-    height: 45px;
-    display: inline-block;
-    margin-right: 2rem;
   }
 }
 
@@ -197,15 +255,26 @@ body.menu-open {
     color: white;
     text-shadow: 0 2px 4px rgba(0,0,0,0.5);
 
-    @media (max-width: 768px) {
-      min-height: 60vh;
-    }
-
     h1 {
       font-family: $font-serif;
       font-size: 3rem;
       margin: 0;
     }
+  }
+}
+
+@media (max-width: 768px) {
+  .hero,
+  .contact-hero {
+    height: auto !important;
+    min-height: 60vh;
+    margin-bottom: 3rem !important; // pushes cards below hero
+  }
+
+  .hero-overlay {
+    height: auto !important;
+    min-height: 60vh;
+    margin-bottom: 2rem;
   }
 }
 
@@ -376,7 +445,6 @@ body.menu-open {
   }
 }
 
-
 .contact-container {
   display: flex;
   gap: 2rem;
@@ -388,33 +456,6 @@ body.menu-open {
   @media (max-width: 768px) {
     flex-direction: column;
     align-items: center;
-  }
-}
-
-.contact-side-info {
-  flex: 1;
-  text-align: center;
-  margin-top: 2rem;
-
-  p {
-    margin-bottom: 1rem;
-    color: $navy;
-    font-weight: bold;
-  }
-
-  .linkedin-logo-button {
-    display: inline-block;
-    text-decoration: none;
-
-    .linkedin-logo-img {
-      width: 60px;
-      height: auto;
-      transition: transform 0.2s ease;
-
-      &:hover {
-        transform: scale(1.05);
-      }
-    }
   }
 }
 
@@ -441,7 +482,6 @@ body.menu-open {
   text-align: center;
   font-size: 0.9rem;
   color: #555;
-}
 
   .footer-note {
     color: #666;
@@ -453,6 +493,23 @@ body.menu-open {
     text-decoration: underline;
     font-weight: bold;
   }
+
+  @media (max-width: 768px) {
+    .footer {
+      padding: 1.5rem 1rem;
+      font-size: 0.85rem;
+
+      .footer-note {
+        margin-top: 0.75rem;
+      }
+
+      .footer-link {
+        margin-top: 1rem;
+        font-size: 0.85rem;
+      }
+    }
+  }
+}
 
 // COOKIE BANNER
 .cookie-banner {
@@ -981,42 +1038,6 @@ body.menu-open {
   border-left: 4px solid #a94442;
 }
 
-.burger-menu {
-  display: none;
-  flex-direction: column;
-  justify-content: center;
-  cursor: pointer;
-  padding: 1rem;
-  z-index: 1000;
-
-  span {
-    height: 3px;
-    width: 25px;
-    background: $green;
-    margin: 4px 0;
-    border-radius: 2px;
-    transition: all 0.3s ease;
-  }
-
-  &.open span:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-  }
-
-  &.open span:nth-child(2) {
-    opacity: 0;
-  }
-
-  &.open span:nth-child(3) {
-    transform: rotate(-45deg) translate(6px, -6px);
-  }
-}
-
-@media (max-width: 768px) {
-  .burger-menu {
-    display: flex;
-  }
-}
-
 
 // Ensure "reverse" layout stacks correctly
 @media (max-width: 768px) {
@@ -1038,117 +1059,64 @@ body.menu-open {
   justify-content: center;
   padding: 6rem 2rem;
   background-color: #F5F5F5;
-
-  .card {
-    text-align: center;
-    max-width: 700px;
-    background-color: white;
-    border-radius: 16px;
-    padding: 3rem 2rem;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s ease;
-
-    &:hover {
-      transform: translateY(-4px);
-    }
-
-    .card-image {
-      width: 100%;
-      height: auto;
-      border-radius: 12px;
-      margin-bottom: 2rem;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
-    }
-
-    .card-content {
-      h2 {
-        font-size: 2rem;
-        color: #1D3557;
-        margin-bottom: 1rem;
-      }
-
-      p {
-        font-size: 1.125rem;
-        color: #2E2E2E;
-        margin-bottom: 1.5rem;
-        line-height: 1.6;
-      }
-
-      .btn-cta {
-        background-color: #1D3557;
-        color: #fff;
-        padding: 0.75rem 1.5rem;
-        border-radius: 8px;
-        font-weight: 600;
-        text-decoration: none;
-        transition: background-color 0.3s;
-
-        &:hover {
-          background-color: #16314c;
-        }
-      }
-    }
-  }
 }
 
 .horizontal-scroll {
+  scroll-padding: 0 4vw;
   display: flex;
   overflow-x: auto;
+  padding-left: 4vw;
   position: relative;
   scroll-snap-type: x mandatory;
+  scroll-padding-top: 6rem;
   height: auto;
   width: 100vw;
-  scroll-behavior: smooth;
   z-index: 1;
   background: #F5F5F5;
-
-  @media (max-width: 768px) {
-    margin-top: 60px;
-  }
-}
-
-.scroll-card {
-  flex: 0 0 92vw;
-  height: 100vh; // smaller than 100vh to avoid footer collision
-  scroll-snap-align: start;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #F5F5F5;
-  padding: 1rem;
-  box-sizing: border-box;
 }
 
 .card {
   background: white;
-  border-radius: 12px;
+  margin-right: 2vw;
+  border-radius: 10px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  padding: 2.5rem;
-  max-width: 90%;
-  max-height: 85%;
-  gap: 2rem;
+  padding: 2rem;
+  height: 80vh; // 🔧 Force consistent height
+  flex: 0 0 92vw; // 🔧 Ensure width is consistent per card
+  max-width: 90vw;
+  gap: 3rem;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
+  scroll-snap-align: start;
 
-  @media (max-width: 768px) {
-    flex-direction: column;
-    text-align: center;
+  &:last-child {
+    margin-right: 4vw; // 👈 prevent extra space at end
+  }
+
+  .card-image {
+    width: 45%;
+    max-height: 500px;
+    object-fit: cover;
+    border-radius: 10px;
   }
 }
 
-.card-image {
-  width: 45%;
-  margin-bottom: 1.5rem;
-  max-height: 300px;
-  object-fit: cover;
-  border-radius: 12px;
-
-  @media (max-width: 768px) {
-    width: 100%;
-    max-height: none;
-  }
+.scroll-card {
+  position: relative;
+  max-width: 92vw;
+  flex: 0 0 92vw;
+  height: 90vh; // smaller than 100vh to avoid footer collision
+  max-height: 90vh;
+  scroll-snap-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  background: #F5F5F5;
+  box-sizing: border-box;
 }
 
 .card-content h2 {
@@ -1214,7 +1182,9 @@ body.menu-open {
     }
   }
 }
+
 .carousel {
+  max-height: none;
   overflow: hidden;
 
   .carousel-track {
@@ -1240,6 +1210,7 @@ body.menu-open {
     margin-top: 1rem;
   }
 }
+
 .carousel-slide {
   min-width: 100%;
   padding: 2rem;
@@ -1325,6 +1296,105 @@ body.menu-open {
   }
 }
 
+@media (max-width: 768px) {
+  .hero,
+  .contact-hero {
+    height: auto !important;
+    min-height: 60vh;
+    margin-bottom: 2rem;
+  }
+
+  .hero-overlay {
+    height: auto !important;
+    padding: 0 1.5rem; // Add horizontal padding
+    text-align: center;
+    min-height: 60vh;
+    margin-bottom: 2rem;
+  }
+
+  .card {
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem;
+    height: auto !important;
+    min-height: 450px;
+    display: flex;
+    flex: 0 0 90vw;
+    max-width: 90vw;
+    border-radius: 12px;
+
+    .card-image {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 1rem;
+    }
+
+    .card-content {
+      flex: 1;
+      width: 100%;
+      max-height: 280px;
+      overflow-y: auto;
+      padding-bottom: 1rem;
+    }
+
+    button,
+    .btn {
+      margin-top: 1rem;
+      margin-bottom: 0.5rem; // brings button higher
+      align-self: center;
+      width: auto;
+    }
+  }
+
+  .carousel {
+    width: 100%;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding-bottom: 1.5rem;
+  }
+
+  .carousel-track {
+    display: flex;
+    gap: 1rem;
+    scroll-snap-type: x mandatory;
+    padding: 1rem;
+  }
+
+  .carousel-track > * {
+    scroll-snap-align: center;
+    flex: 0 0 85vw;
+    max-width: 85vw;
+    background: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 480px; // 👈 Force consistent height
+    box-sizing: border-box;
+  }
+
+  .carousel-track .card-content {
+    max-height: 280px;
+    overflow-y: auto;
+    margin-bottom: 1rem;
+  }
+
+  .carousel-track button,
+  .carousel-track .btn {
+    margin-top: auto;
+    align-self: center;
+  }
+
+  .carousel-slide p {
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+    word-wrap: break-word;
+  }
+}
 
 
 
