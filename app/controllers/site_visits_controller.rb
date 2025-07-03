@@ -8,4 +8,3 @@ class SiteVisitsController < ApplicationController
                    .last(50).reverse
   end
 end
-

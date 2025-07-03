@@ -1,6 +1,6 @@
 # app/models/site_visit.rb
 class SiteVisit
-  FILE_PATH = Rails.root.join('log', 'site_visits.json')
+  FILE_PATH = Rails.root.join("log/site_visits.json")
 
   require 'json'
   require 'digest'
