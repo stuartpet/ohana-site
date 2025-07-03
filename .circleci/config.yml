@@ -6,13 +6,6 @@ executors:
       - image: cimg/ruby:3.2.2-node
         environment:
           RAILS_ENV: test
-          POSTGRES_HOST: postgres
-      - image: cimg/postgres:14.7
-        name: postgres
-        environment:
-          POSTGRES_USER: postgres
-          POSTGRES_DB: ohana_site_test
-          POSTGRES_PASSWORD: postgres
     working_directory: ~/app
 
 jobs:
@@ -44,10 +37,6 @@ jobs:
       - run:
           name: Precompile Rails assets
           command: bundle exec rails assets:precompile
-
-      - run:
-          name: Set up database
-          command: bin/rails db:create db:schema:load
 
   test:
     executor: ruby-executor
