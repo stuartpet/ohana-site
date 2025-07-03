@@ -117,18 +117,40 @@
       },
       "/Users/stuart_pethurst/ohana_site/app/models/site_visit.rb": {
         "lines": [
+          null,
           1,
+          1,
+          null,
+          1,
+          1,
+          1,
+          8,
+          null,
+          8,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          8,
+          null,
+          null,
+          1,
+          8,
+          null,
+          null,
+          1,
+          8,
+          null,
           null
         ],
-        "branches": {}
-      },
-      "/Users/stuart_pethurst/ohana_site/app/models/application_record.rb": {
-        "lines": [
-          1,
-          1,
-          null
-        ],
-        "branches": {}
+        "branches": {
+          "[:if, 0, 21, 4, 21, 66]": {
+            "[:then, 1, 21, 29, 21, 61]": 8,
+            "[:else, 2, 21, 64, 21, 66]": 0
+          }
+        }
       },
       "/Users/stuart_pethurst/ohana_site/app/controllers/pages_controller.rb": {
         "lines": [
@@ -155,11 +177,9 @@
           1,
           null,
           1,
-          11,
+          10,
           null,
-          9,
-          null,
-          9,
+          8,
           null,
           null,
           null,
@@ -179,7 +199,7 @@
         ],
         "branches": {
           "[:unless, 0, 7, 4, 7, 30]": {
-            "[:else, 1, 7, 4, 7, 30]": 9,
+            "[:else, 1, 7, 4, 7, 30]": 8,
             "[:then, 2, 7, 4, 7, 10]": 2
           }
         }
@@ -245,17 +265,6 @@
         ],
         "branches": {}
       },
-      "/Users/stuart_pethurst/ohana_site/app/controllers/site_visits_controller.rb": {
-        "lines": [
-          null,
-          1,
-          1,
-          1,
-          null,
-          null
-        ],
-        "branches": {}
-      },
       "/Users/stuart_pethurst/ohana_site/app/channels/application_cable/channel.rb": {
         "lines": [
           0,
@@ -267,6 +276,21 @@
       },
       "/Users/stuart_pethurst/ohana_site/app/channels/application_cable/connection.rb": {
         "lines": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "branches": {}
+      },
+      "/Users/stuart_pethurst/ohana_site/app/controllers/site_visits_controller.rb": {
+        "lines": [
+          null,
+          0,
+          0,
+          0,
+          null,
+          0,
           0,
           0,
           0,
@@ -287,6 +311,6 @@
         "branches": {}
       }
     },
-    "timestamp": 1750894530
+    "timestamp": 1751541553
   }
 }
