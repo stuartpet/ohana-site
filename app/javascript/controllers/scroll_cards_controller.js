@@ -28,7 +28,6 @@ export default class extends Controller {
 
         if (target) {
             event.preventDefault()
-            target.scrollIntoView({ behavior: "smooth", block: "start", inline: "start" })
             const offset = 100 // adjust this to match your navbar height
             const elementTop = target.getBoundingClientRect().top + window.scrollY
             const offsetTop = elementTop - offset

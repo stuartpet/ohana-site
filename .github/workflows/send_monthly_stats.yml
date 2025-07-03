@@ -1,20 +1,32 @@
-name: Send Monthly Site Stats Report
+name: Send Weekly Site Report
 
 on:
   schedule:
-    - cron: '0 9 1 * *' # Runs at 9 AM UTC on the 1st of every month
+    - cron: '0 9 * * 1' # Every Monday at 9:00 UTC
+  workflow_dispatch:
 
 jobs:
-  trigger-render-job:
+  email-report:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Trigger Render one-off job
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.2' # adjust to match your app
+
+      - name: Install dependencies
         run: |
-          curl -X POST https://api.render.com/v1/jobs \
-            -H "Accept: application/json" \
-            -H "Authorization: Bearer ${{ secrets.RENDER_API_KEY }}" \
-            -H "Content-Type: application/json" \
-            -d '{
-              "serviceId": "${{ secrets.RENDER_SERVICE_ID }}",
-              "startCommand": "bundle exec rake reports:send_site_stats"
-            }'
+          gem install bundler
+          bundle install --without development test
+
+      - name: Run report task
+        env:
+          RAILS_ENV: production
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASS: ${{ secrets.SMTP_PASS }}
+          SITE_EMAIL_TO: ${{ secrets.SITE_EMAIL_TO }}
+        run: bundle exec rake reports:send_site_stats
